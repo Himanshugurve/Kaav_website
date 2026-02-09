@@ -12,9 +12,9 @@ const Header = () => {
         {/* Logo (inline with content, slightly larger but constrained to header height) */}
         <a href="#hero" className="flex h-full items-center cursor-pointer">
           <img
-            src="public/Images/Kaavv22.png"
+            src="public/Images/Kaavv.png"
 
-            alt="Kavv Logo"
+            alt="Kavv Logos"
             className="h-12 w-auto max-h-full object-contain transform scale-110 hover:scale-125 transition-transform duration-200"
           />
         </a>
