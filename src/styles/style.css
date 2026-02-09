@@ -1,0 +1,88 @@
+@import 'tailwindcss';
+
+@layer base {
+  :root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+      'SF Pro Display', system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+}
+
+.about-stack-image {
+  position: absolute;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  object-fit: cover;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.8);
+  width: 16rem;
+  height: 22rem;
+  transition: transform 0.8s ease, opacity 0.8s ease, z-index 0.8s ease;
+  animation: about-stack-cycle 12s infinite ease-in-out;
+}
+
+.about-stack-image--center {
+  width: 18rem;
+  height: 26rem;
+  z-index: 3;
+  animation-delay: 0s;
+}
+
+.about-stack-image--left {
+  z-index: 1;
+  animation-delay: -8s;
+}
+
+.about-stack-image--right {
+  z-index: 2;
+  animation-delay: -4s;
+}
+
+@keyframes about-stack-cycle {
+  0% {
+    transform: translateX(-44px) scale(0.9) rotate(-6deg);
+    opacity: 0.7;
+    z-index: 1;
+  }
+  18% {
+    transform: translateX(-44px) scale(0.9) rotate(-6deg);
+    opacity: 0.7;
+    z-index: 1;
+  }
+  33% {
+    transform: translateX(0) scale(1.05) rotate(0deg);
+    opacity: 1;
+    z-index: 3;
+  }
+  52% {
+    transform: translateX(44px) scale(0.9) rotate(6deg);
+    opacity: 0.7;
+    z-index: 2;
+  }
+  100% {
+    transform: translateX(-44px) scale(0.9) rotate(-6deg);
+    opacity: 0.7;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-stack-image {
+    width: 14rem;
+    height: 20rem;
+  }
+
+  .about-stack-image--center {
+    width: 16rem;
+    height: 23rem;
+  }
+}
