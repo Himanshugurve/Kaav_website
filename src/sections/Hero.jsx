@@ -30,6 +30,7 @@ const Hero = () => {
     <section
       id="hero"
       className="
+        scroll-mt-24
         flex items-center justify-center
         min-h-[70vh] sm:min-h-[80vh] lg:min-h-[85vh]
         py-16 sm:py-20 lg:py-24

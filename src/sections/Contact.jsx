@@ -51,7 +51,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="relative min-h-screen w-full overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950">
+    <section id="contact" className="relative min-h-screen w-full scroll-mt-24 overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -left-1/4 top-0 h-64 w-64 md:h-96 md:w-96 animate-pulse rounded-full bg-indigo-600/20 blur-3xl" />

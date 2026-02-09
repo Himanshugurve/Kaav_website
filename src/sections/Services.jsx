@@ -193,7 +193,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="w-full border-y border-white/5 bg-slate-950/40 py-16 backdrop-blur-md md:py-20"
+      className="w-full scroll-mt-24 border-y border-white/5 bg-slate-950/40 py-16 backdrop-blur-md md:py-20"
     >
       <div className="mx-auto w-full max-w-6xl px-4">
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
