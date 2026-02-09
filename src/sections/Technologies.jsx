@@ -541,7 +541,7 @@ const Technologies = () => {
   return (
     <section
       id="technologies"
-      className="w-full border-y border-white/5 bg-slate-950/40 py-12 sm:py-16 md:py-20 backdrop-blur-md"
+      className="w-full scroll-mt-24 border-y border-white/5 bg-slate-950/40 py-12 sm:py-16 md:py-20 backdrop-blur-md"
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
 

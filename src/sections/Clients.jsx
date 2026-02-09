@@ -53,7 +53,7 @@ const Clients = () => {
   const duplicatedClients = [...clients, ...clients, ...clients];
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950/20 to-slate-950 py-20">
+    <section id="clients" className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950/20 to-slate-950 py-20">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-indigo-600/10 blur-3xl" />
@@ -62,7 +62,7 @@ const Clients = () => {
 
       <div className="relative">
         {/* Header Section */}
-        <div id="clients" className="mx-auto mb-16 max-w-7xl px-6 text-center lg:px-8">
+        <div className="mx-auto mb-16 max-w-7xl px-6 text-center lg:px-8">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 backdrop-blur-sm">
             <Star className="h-4 w-4 text-indigo-400" />
             <span className="text-sm font-medium text-indigo-300">Trusted Worldwide</span>

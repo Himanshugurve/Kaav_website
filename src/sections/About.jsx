@@ -313,8 +313,41 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative w-full overflow-hidden border-y border-white/5 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/30"
+      className="relative w-full scroll-mt-24 overflow-hidden border-y border-white/5 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/30"
     >
+      {/* TOP RIGHT Semi-circle bubble */}
+      <div className="absolute -right-20 -top-20 h-64 w-64 overflow-hidden">
+        <div
+          className="h-full w-full rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 opacity-15 blur-3xl transition-all duration-700 hover:scale-110 hover:opacity-20"
+        />
+      </div>
+
+      {/* TOP RIGHT Semi-circle bubble border/outline */}
+      <div className="absolute -right-24 -top-24 h-80 w-80">
+        <div
+          className="h-full w-full rounded-full opacity-10 transition-all duration-700 hover:scale-105 hover:opacity-15"
+          style={{
+            background: `radial-gradient(circle at top right, rgba(99, 102, 241, 0.2) 0%, transparent 70%)`,
+          }}
+        />
+      </div>
+
+      {/* TOP LEFT Semi-circle bubble */}
+      <div className="absolute -left-20 -top-20 h-64 w-64 overflow-hidden">
+        <div
+          className="h-full w-full rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 opacity-15 blur-3xl transition-all duration-700 hover:scale-110 hover:opacity-20"
+        />
+      </div>
+
+      {/* TOP LEFT Semi-circle bubble border/outline */}
+      <div className="absolute -left-24 -top-24 h-80 w-80">
+        <div
+          className="h-full w-full rounded-full opacity-10 transition-all duration-700 hover:scale-105 hover:opacity-15"
+          style={{
+            background: `radial-gradient(circle at top left, rgba(59, 130, 246, 0.2) 0%, transparent 70%)`,
+          }}
+        />
+      </div>
 
       {/* Animated background elements */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -322,6 +355,9 @@ const About = () => {
         <div className="absolute -right-1/4 top-1/2 h-96 w-96 animate-float rounded-full bg-purple-500/10 blur-3xl" style={{ animationDelay: '1s' }} />
         <div className="absolute bottom-0 left-1/2 h-96 w-96 animate-float rounded-full bg-blue-500/10 blur-3xl" style={{ animationDelay: '2s' }} />
       </div>
+
+     
+        {/* Rest of your About content continues here... */}
 
       <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-28">
         {/* Header */}
@@ -397,7 +433,7 @@ const About = () => {
         {/* Cards Container */}
         <div
           id="kaav-scroll"
-          className="flex gap-6 overflow-x-auto pb-6 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-4"
+          className="flex gap-4 overflow-x-auto pb-4 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-4"
           style={{
             scrollSnapType: 'x mandatory',
             scrollbarWidth: 'none',
@@ -407,7 +443,7 @@ const About = () => {
           {kaavPrinciples.map((principle, index) => (
             <div
               key={index}
-              className="group relative min-w-[280px] flex-shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-8 backdrop-blur transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/20 md:min-w-0"
+              className="group relative min-w-[80vw] max-w-xs sm:min-w-[260px] flex-shrink-0 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800/50 to-slate-900/50 p-5 sm:p-6 md:p-8 backdrop-blur transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/20 md:min-w-0"
               style={{
                 scrollSnapAlign: 'center',
                 animationDelay: `${index * 100}ms`,
@@ -436,26 +472,32 @@ const About = () => {
               />
 
               {/* Letter */}
-              <div className="relative mb-4 text-6xl font-black text-slate-700 transition-all duration-500 group-hover:scale-110 group-hover:text-indigo-400">
+              <div className="relative mb-3 text-4xl sm:text-5xl md:text-6xl font-black text-slate-700 transition-all duration-500 group-hover:scale-110 group-hover:text-indigo-400">
                 {principle.letter}
               </div>
 
               {/* Icon */}
-              <div className="relative mb-4 text-indigo-400 transition-all duration-500 group-hover:scale-110 group-hover:text-indigo-300">
+              <div className="relative mb-3 text-indigo-400 transition-all duration-500 group-hover:scale-110 group-hover:text-indigo-300">
                 {principle.icon}
               </div>
 
               {/* Title */}
-              <h3 className="relative mb-3 text-xl font-bold text-white transition-colors duration-300 group-hover:text-indigo-300">
+              <h3 className="relative mb-2 text-lg sm:text-xl font-bold text-white transition-colors duration-300 group-hover:text-indigo-300">
                 {principle.title}
               </h3>
 
               {/* Description */}
-              <p className="relative text-sm leading-relaxed text-slate-400 transition-colors duration-300 group-hover:text-slate-300">
+              <p className="relative text-xs sm:text-sm leading-relaxed text-slate-400 transition-colors duration-300 group-hover:text-slate-300">
                 {principle.description}
               </p>
             </div>
           ))}
+        </div>
+        {/* Mobile scroll hint */}
+        <div className="mt-2 flex items-center justify-center gap-2 text-[11px] text-slate-400 md:hidden">
+          <span className="h-px w-6 bg-slate-600" />
+          <span>Swipe horizontally to see more</span>
+          <span className="animate-pulse text-slate-300">↔</span>
         </div>
 
 
