@@ -5,21 +5,19 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    'Custom Software',
-    'Web Applications',
-    'Mobile Apps',
+    'Custom Software Development',
+    'Web Application Development',
+    'Mobile App Development',
     'Cloud Solutions',
-    'AI Integration',
-    'DevOps'
+    'Cybersecurity Services',
+    'IT Consulting & Support'
   ];
 
   const company = [
     'About Us',
-    'Our Team',
-    'Careers',
-    'Case Studies',
-    'Blog',
-    'Contact'
+    'Technologies',
+    'Contact',
+    'Clients'
   ];
 
   const legal = [
@@ -59,7 +57,7 @@ const Footer = () => {
               <div className="space-y-2 text-xs text-slate-500">
                 <div className="flex items-center gap-2 transition-colors hover:text-indigo-400">
                   <Mail className="h-3.5 w-3.5" />
-                  <a href="mailto:hello@kodvix.com">hello@kaav.com</a>
+                  <a href="info@kaav-ites.com">info@kaav-ites.com</a>
                 </div>
                 <div className="flex items-center gap-2 transition-colors hover:text-indigo-400">
                   <Phone className="h-3.5 w-3.5" />
@@ -158,7 +156,6 @@ const Footer = () => {
               © {currentYear} Kaav Technology. All rights reserved.
             </p>
 
-            {/* Tech Badge */}
            
           </div>
         </div>

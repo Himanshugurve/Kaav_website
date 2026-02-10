@@ -25,7 +25,9 @@ import {
   BookOpen,
   Cog,
   TrendingDown,
-  DollarSign
+  DollarSign,
+  Link as LinkIcon,
+  ExternalLink
 } from 'lucide-react';
 
 // Animation hook for intersection observer
@@ -345,7 +347,7 @@ const About = () => {
       </div>
 
       {/* ─── MAIN CONTENT ─── */}
-      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24">
 
         {/* Header */}
         <div
@@ -353,7 +355,7 @@ const About = () => {
           className={`mb-6 sm:mb-8 text-center ${headerRef.isIntersecting ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-400 delay-100">
-            About Kaav IT Enablement
+            About KAAV IT Enabling Services
           </p>
           <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-50 delay-200 px-4">
             Bridging Strategy and
@@ -404,7 +406,33 @@ const About = () => {
           </div>
           <div className="grid gap-3 text-sm sm:text-base text-slate-300 leading-relaxed px-4 sm:px-0">
             <p>
-              At Kaav IT Enablement, we empower businesses to bridge strategy and execution through cutting-edge IT solutions, training, and outsourcing. Founded as a Canada-based firm with a global delivery model, we connect skilled teams in India with companies across Canada and beyond, delivering high-quality, cost-effective technology solutions without compromising excellence. We believe technology should empower, not complicate. Our mission is to enable businesses to achieve more with the right knowledge, tools, and talent, connecting innovation and execution seamlessly across borders and industries.
+              At KAAV IT Enabling Services, we empower businesses to bridge strategy and execution through cutting-edge IT solutions, training, and outsourcing. Founded as a Canada-based firm with a global delivery model, we connect skilled teams in India with companies across Canada and beyond, delivering high-quality, cost-effective technology solutions without compromising excellence.
+            </p>
+            <p className="relative">
+              <span className="inline-flex items-baseline gap-2 flex-wrap">
+                In partnership with
+                <a
+                  href="https://www.kodvix.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/link relative inline-flex items-center gap-1.5 font-semibold text-indigo-400 transition-all duration-300 hover:text-indigo-300"
+                >
+                  <span className="relative">
+                    Kodvix
+                    <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-indigo-400 to-purple-400 transition-all duration-300 group-hover/link:w-full" />
+                  </span>
+                  <ExternalLink className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
+                  <Sparkles className="h-3.5 w-3.5 text-purple-400 opacity-0 transition-all duration-300 group-hover/link:opacity-100" />
+                </a>
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 px-2.5 py-0.5 text-xs font-medium text-indigo-400 ring-1 ring-indigo-500/20">
+                  <LinkIcon className="h-3 w-3" />
+                  Strategic Alliance
+                </span>
+              </span>
+              , a leading technology solutions provider, we deliver enhanced capabilities and extended expertise to our clients across North America and beyond.
+            </p>
+            <p>
+              We believe technology should empower, not complicate. Our mission is to enable businesses to achieve more with the right knowledge, tools, and talent, connecting innovation and execution seamlessly across borders and industries.
             </p>
           </div>
         </div>
@@ -457,37 +485,35 @@ const About = () => {
 
         {/* Specializations Section */}
         <div className={`mb-6 sm:mb-8 ${contentRef.isIntersecting ? 'animate-fade-in-up delay-400' : 'opacity-0'}`}>
-          <div className="mb-4 sm:mb-5 text-center">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-50 mb-2 px-4">
+          <div className="mb-6 sm:mb-8 text-center">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-50 mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-4">
               What We Specialize In
             </h3>
-            <p className="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto px-4">
-              Comprehensive IT services tailored to your business needs
-            </p>
           </div>
 
-          <div className="grid gap-3 sm:gap-4 md:grid-cols-2">
+          <div className="grid gap-6 sm:gap-8 grid-cols-2 lg:grid-cols-4 px-4">
             {specializations.map((spec, index) => (
               <div
                 key={index}
-                className="card-hover-effect group relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/5 bg-slate-900/50 p-4 sm:p-5 backdrop-blur-sm transition-all duration-500 hover:scale-102 hover:border-indigo-500/30 hover:bg-slate-900/70 hover:shadow-xl hover:shadow-indigo-500/20"
+                className="group relative flex flex-col items-center text-center transition-all duration-500 hover:scale-105"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="absolute inset-0 translate-y-full bg-gradient-to-b from-indigo-500/10 to-transparent transition-transform duration-500 group-hover:translate-y-0" />
-                <div className="relative flex gap-3">
-                  <div className="flex-shrink-0">
-                    <div className="rounded-xl bg-indigo-500/10 p-2.5 sm:p-3 text-indigo-400 ring-1 ring-indigo-500/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-indigo-500/20 group-hover:ring-indigo-500/40">
-                      {spec.icon}
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h4 className="text-base sm:text-lg font-semibold text-slate-50 mb-1.5 transition-colors duration-300 group-hover:text-indigo-300">
-                      {spec.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-slate-400 leading-relaxed transition-colors duration-300 group-hover:text-slate-300">
-                      {spec.description}
-                    </p>
+                {/* Icon Box */}
+                <div className="relative mb-4">
+                  <div className="flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-400 ring-1 ring-indigo-500/20 transition-all duration-500 group-hover:scale-110 group-hover:bg-indigo-500/20 group-hover:ring-indigo-500/40">
+                    {React.cloneElement(spec.icon, { className: 'h-8 w-8 sm:h-10 sm:w-10' })}
                   </div>
                 </div>
+
+                {/* Title */}
+                <h4 className="text-sm sm:text-base md:text-lg font-bold text-slate-50 transition-colors duration-300 group-hover:text-indigo-300">
+                  {spec.title}
+                </h4>
+
+                {/* Description */}
+                <p className="mt-2 text-xs sm:text-sm text-slate-400 text-center leading-relaxed transition-colors duration-300 group-hover:text-slate-300">
+                  {spec.description}
+                </p>
               </div>
             ))}
           </div>
@@ -539,26 +565,71 @@ const About = () => {
 
             {/* Why Choose Section */}
             <div className={`hidden md:block mt-4 sm:mt-5 ${contentRef.isIntersecting ? 'animate-fade-in-up delay-400' : 'opacity-0'}`}>
-              <h4 className="mb-3 text-base sm:text-lg font-semibold text-slate-50">
-                Why Choose Kaav IT Enablement?
-              </h4>
-              <div className="space-y-2">
-                {[
-                  'Proven track record with 500+ successful projects',
-                  'End-to-end solutions from concept to deployment',
-                  'Agile development with transparent communication',
-                  'Dedicated account managers and 24/7 support',
-                  'Competitive pricing with flexible engagement models',
-                ].map((point, index) => (
-                  <div
-                    key={index}
-                    className="flex items-start gap-2.5 rounded-lg border border-white/5 bg-slate-900/30 p-2.5 sm:p-3 transition-all duration-300 hover:scale-105 hover:border-indigo-500/30 hover:bg-slate-900/50"
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-green-400" />
-                    <span className="text-xs sm:text-sm text-slate-300">{point}</span>
-                  </div>
-                ))}
+              <div className="relative max-w-md mx-auto">
+                <h4 className="mb-4 text-lg sm:text-xl md:text-2xl font-bold text-slate-50 flex items-center gap-2">
+                  <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-indigo-400" />
+                  Why Choose Us?
+                </h4>
+                
+                <div className="space-y-4">
+                  {[
+                    { 
+                      icon: <Award className="h-5 w-5" />, 
+                      text: '500+ Projects', 
+                      description: 'Successfully delivered across diverse industries with proven results',
+                      color: 'from-blue-500 to-cyan-500' 
+                    },
+                    { 
+                      icon: <Zap className="h-5 w-5" />, 
+                      text: 'End-to-End Solutions', 
+                      description: 'From concept to deployment, we handle every aspect of your project',
+                      color: 'from-indigo-500 to-purple-500' 
+                    },
+                    { 
+                      icon: <Users className="h-5 w-5" />, 
+                      text: '24/7 Support', 
+                      description: 'Dedicated team available round-the-clock for seamless assistance',
+                      color: 'from-purple-500 to-pink-500' 
+                    },
+                    { 
+                      icon: <Target className="h-5 w-5" />, 
+                      text: 'Agile & Transparent', 
+                      description: 'Flexible development approach with complete project visibility',
+                      color: 'from-green-500 to-emerald-500' 
+                    },
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="group flex items-start gap-4 transition-all duration-300 hover:translate-x-1"
+                      style={{ animationDelay: `${index * 50}ms` }}
+                    >
+                      {/* Arrow */}
+                      <div className="relative flex-shrink-0 mt-1">
+                        <div className="h-10 w-10 rotate-45 overflow-hidden rounded-md bg-gradient-to-br from-slate-700/50 to-slate-800/50 ring-1 ring-white/5 transition-all duration-300 group-hover:ring-2 group-hover:ring-indigo-400/50">
+                          <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 transition-opacity duration-300 group-hover:opacity-20`} />
+                          <div className="absolute inset-0 flex items-center justify-center -rotate-45">
+                            <div className="text-indigo-400 transition-colors duration-300 group-hover:text-indigo-300">
+                              {item.icon}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Text Content */}
+                      <div className="flex-1">
+                        <span className="block text-base sm:text-lg md:text-xl font-semibold text-slate-300 transition-colors duration-300 group-hover:text-slate-50">
+                          {item.text}
+                        </span>
+                        <span className="block mt-1 text-sm sm:text-base text-slate-400 transition-colors duration-300 group-hover:text-slate-300">
+                          {item.description}
+                        </span>
+                      </div>
+                      
+                      {/* Expanding line */}
+                      <div className="ml-auto h-px w-0 bg-gradient-to-r from-indigo-500 to-transparent transition-all duration-300 group-hover:w-10" />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
