@@ -76,7 +76,6 @@ const Clients = () => {
           </p>
         </div>
 
-        {/* Stats Grid */}
         {/* Horizontal Scrolling Clients */}
         <div className="relative">
           {/* Gradient Overlays */}
@@ -138,41 +137,41 @@ const Clients = () => {
           </div>
         </div>
 
+        {/* Stats Grid */}
+        
 
         {/* Bottom CTA */}
         <div className="mx-auto mt-16 max-w-4xl px-6 text-center lg:px-8">
-        
-            <h3 className="mb-4 text-2xl font-bold text-white lg:text-3xl">
-              Ready to Join Our Success Stories?
-            </h3>
-            <p className="mb-6 text-slate-300">
-              Let's transform your business together with cutting-edge solutions
-            </p>
-            <button
-              onClick={() => {
-                // Scroll to contact section
-                const contactSection = document.querySelector('#contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  
-                  // Focus on name input after scroll completes
-                  setTimeout(() => {
-                    const nameInput = document.querySelector('input[name="name"]');
-                    if (nameInput) {
-                      nameInput.focus();
-                    }
-                  }, 800); // Wait for smooth scroll to complete
-                }
-              }}
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/50"
-            >
-              <span className="relative z-10">Start Your Project</span>
-              <Zap className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 via-purple-700 to-cyan-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            </button>
-          </div>
+          <h3 className="mb-4 text-2xl font-bold text-white lg:text-3xl">
+            Ready to Join Our Success Stories?
+          </h3>
+          <p className="mb-6 text-slate-300">
+            Let's transform your business together with cutting-edge solutions
+          </p>
+          <button
+            onClick={() => {
+              // Scroll to contact section
+              const contactSection = document.querySelector('#contact');
+              if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                
+                // Focus on name input after scroll completes
+                setTimeout(() => {
+                  const nameInput = document.querySelector('input[name="name"]');
+                  if (nameInput) {
+                    nameInput.focus();
+                  }
+                }, 800); // Wait for smooth scroll to complete
+              }
+            }}
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 px-8 py-4 font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/50"
+          >
+            <span className="relative z-10">Start Your Project</span>
+            <Zap className="relative z-10 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 via-purple-700 to-cyan-700 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </button>
         </div>
-    
+      </div>
     </section>
   );
 };

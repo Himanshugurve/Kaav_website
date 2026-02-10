@@ -387,8 +387,8 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="mb-1 text-sm font-semibold text-white">Email Address</h4>
-                  <a href="mailto:hello@company.com" className="block text-xs md:text-sm text-slate-400 hover:text-cyan-400 transition-colors">hello@company.com</a>
-                  <a href="mailto:support@company.com" className="block text-xs md:text-sm text-slate-400 hover:text-cyan-400 transition-colors">support@company.com</a>
+                  <a href="mailto:info@kaav-ites.com" className="block text-xs md:text-sm text-slate-400 hover:text-cyan-400 transition-colors">info@kaav-ites.com</a>
+                  <a href="mailto:contact@kaav-ites.com" className="block text-xs md:text-sm text-slate-400 hover:text-cyan-400 transition-colors">contact@kaav-ites.com</a>
                 </div>
               </div>
             </div>
