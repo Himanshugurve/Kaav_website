@@ -8,7 +8,7 @@ import Services from './sections/Services';
 import Technologies from './sections/Technologies';
 import Clients from './sections/Clients';
 import Contact from './sections/Contact';
-import CustomCursor from './components/CustomCursor';
+
 
 
 const App = () => {
@@ -17,7 +17,6 @@ const App = () => {
     <div className="min-h-screen bg-slate-950 text-slate-50 relative overflow-hidden">
       <div className="relative z-10">
 
-        <CustomCursor />
         <Header />
         <main className="mx-auto max-w-6xl px-4 relative">
           <ParticleBackground />

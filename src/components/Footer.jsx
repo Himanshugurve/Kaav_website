@@ -159,18 +159,7 @@ const Footer = () => {
             </p>
 
             {/* Tech Badge */}
-            <div className="flex items-center gap-2 text-xs text-slate-500">
-              <span>Built with</span>
-              <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-slate-900/50 px-2.5 py-1">
-                <div className="h-2 w-2 animate-pulse rounded-full bg-indigo-400" />
-                <span className="text-indigo-400">React</span>
-              </div>
-              <span>&</span>
-              <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-slate-900/50 px-2.5 py-1">
-                <div className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
-                <span className="text-cyan-400">Tailwind</span>
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>

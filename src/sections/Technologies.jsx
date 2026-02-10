@@ -16,347 +16,366 @@ const TechIcon = ({ icon, className = '' }) => {
       case 'react':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="reactGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#61DAFB" />
-                <stop offset="100%" stopColor="#0066CC" />
-              </linearGradient>
-            </defs>
-            <circle cx="32" cy="32" r="28" fill="url(#reactGradient)" opacity="0.9" />
-            <path d="M32 12C22.0589 12 14 20.0589 14 30C14 39.9411 22.0589 48 32 48C41.9411 48 50 39.9411 50 30C50 20.0589 41.9411 12 32 12ZM32 16C37.5228 16 42 20.4772 42 26C42 31.5228 37.5228 36 32 36C26.4772 36 22 31.5228 22 26C22 20.4772 26.4772 16 32 16Z" fill="white" opacity="0.9" />
-            <circle cx="32" cy="30" r="8" fill="white" opacity="0.8" />
+            {/* React — cyan atom orbits */}
+            <circle cx="32" cy="32" r="4.5" fill="#61DAFB" />
+            {/* Orbit 1 */}
+            <ellipse cx="32" cy="32" rx="22" ry="8.5" stroke="#61DAFB" strokeWidth="2.2" fill="none" />
+            {/* Orbit 2 — rotated 60° */}
+            <ellipse cx="32" cy="32" rx="22" ry="8.5" stroke="#61DAFB" strokeWidth="2.2" fill="none"
+              transform="rotate(60 32 32)" />
+            {/* Orbit 3 — rotated 120° */}
+            <ellipse cx="32" cy="32" rx="22" ry="8.5" stroke="#61DAFB" strokeWidth="2.2" fill="none"
+              transform="rotate(120 32 32)" />
           </svg>
         );
 
       case 'nextjs':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="nextGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#000000" />
-                <stop offset="100%" stopColor="#333333" />
-              </linearGradient>
-            </defs>
-            <rect x="12" y="16" width="40" height="32" rx="8" fill="url(#nextGradient)" opacity="0.9" />
-            <path d="M20 24L32 36L44 24" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
-            <circle cx="32" cy="28" r="2" fill="white" opacity="0.8" />
+            {/* Next.js — black circle with white N wordmark */}
+            <circle cx="32" cy="32" r="26" fill="#000000" />
+            {/* N letterform */}
+            <path d="M20 44V20l16.5 22V20" stroke="white" strokeWidth="3.5"
+              strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <path d="M36.5 20h7" stroke="white" strokeWidth="3.5" strokeLinecap="round" />
           </svg>
         );
 
       case 'tailwind':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="tailwindGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#38BDF8" />
-                <stop offset="100%" stopColor="#0EA5E9" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8C46.3594 8 58 19.6406 58 34C58 48.3594 46.3594 60 32 60C17.6406 60 6 48.3594 6 34C6 19.6406 17.6406 8 32 8Z" fill="url(#tailwindGradient)" opacity="0.9" />
-            <path d="M22 28C22 22.4772 26.4772 18 32 18C37.5228 18 42 22.4772 42 28C42 33.5228 37.5228 38 32 38C26.4772 38 22 33.5228 22 28Z" fill="white" opacity="0.8" />
+            {/* Tailwind CSS — two wave marks */}
+            <path
+              d="M16 27c2.667-10.667 8-16 16-16 8 0 12 4 12 12s-4 12-12 12c-8 0-12 4-12 12s4 12 12 12c8 0 13.333-5.333 16-16"
+              stroke="#38BDF8" strokeWidth="3" fill="none" strokeLinecap="round" />
           </svg>
         );
 
       case 'vue':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="vueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#42B883" />
-                <stop offset="100%" stopColor="#36907D" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8L56 34L32 60L8 34L32 8Z" fill="url(#vueGradient)" opacity="0.9" />
-            <path d="M32 16L44 30L32 44L20 30L32 16Z" fill="white" opacity="0.8" />
+            {/* Vue.js — V chevron logo */}
+            {/* Outer V */}
+            <path d="M8 10l24 42L56 10H44L32 33 20 10z" fill="#42B883" />
+            {/* Inner V */}
+            <path d="M20 10l12 21L44 10H35L32 16l-3-6z" fill="#35495E" />
           </svg>
         );
 
       case 'angular':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="angularGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#DD0031" />
-                <stop offset="100%" stopColor="#C10029" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8L56 34L32 60L8 34L32 8Z" fill="url(#angularGradient)" opacity="0.9" />
-            <path d="M24 26L32 34L40 26" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
-            <path d="M24 38L32 46L40 38" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.9" />
+            {/* Angular — shield with A */}
+            <path d="M32 6L10 14l3.5 30L32 58l18.5-14L54 14z" fill="#DD0031" />
+            <path d="M32 6v52l18.5-14L54 14z" fill="#C3002F" />
+            {/* A letterform inside */}
+            <path d="M32 16l-10 26h4.5l2-5.5h7l2 5.5H42z" fill="white" />
+            <path d="M26.5 32.5l5.5-13.5 5.5 13.5z" fill="#DD0031" />
           </svg>
         );
 
       case 'typescript':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="tsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#3178C6" />
-                <stop offset="100%" stopColor="#2563EB" />
-              </linearGradient>
-            </defs>
-            <rect x="16" y="16" width="32" height="32" rx="8" fill="url(#tsGradient)" opacity="0.9" />
-            <text x="32" y="36" textAnchor="middle" fill="white" fontSize="20" fontWeight="bold" fontFamily="Arial, sans-serif">TS</text>
+            {/* TypeScript — blue square with TS */}
+            <rect x="8" y="8" width="48" height="48" rx="6" fill="#3178C6" />
+            {/* T */}
+            <path d="M16 25h14M23 25v14" stroke="white" strokeWidth="3.5" strokeLinecap="round" />
+            {/* S */}
+            <path d="M33 38c0 0 1.5 1.5 4.5 1.5s4.5-1.5 4.5-3.5-2-3-4.5-3.5-4.5-1.5-4.5-3.5 1.5-3.5 4.5-3.5 4 1.5 4 1.5"
+              stroke="white" strokeWidth="3" strokeLinecap="round" fill="none" />
           </svg>
         );
 
       case 'nodejs':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#339933" />
-                <stop offset="100%" stopColor="#2E8B57" />
-              </linearGradient>
-            </defs>
-            <rect x="12" y="16" width="40" height="32" rx="16" fill="url(#nodeGradient)" opacity="0.9" />
-            <circle cx="28" cy="32" r="6" fill="white" opacity="0.8" />
-            <circle cx="36" cy="32" r="6" fill="white" opacity="0.8" />
+            {/* Node.js — hexagon with N */}
+            <path d="M32 6L56 19.5v27L32 60 8 46.5v-27z" fill="#339933" />
+            {/* N letterform */}
+            <path d="M22 42V22l12 16V22" stroke="white" strokeWidth="3"
+              strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <line x1="34" y1="22" x2="42" y2="22" stroke="white" strokeWidth="3" strokeLinecap="round" />
+            <line x1="42" y1="22" x2="42" y2="42" stroke="white" strokeWidth="3" strokeLinecap="round" />
           </svg>
         );
 
       case 'spring':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="springGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#6DB33F" />
-                <stop offset="100%" stopColor="#5AA030" />
-              </linearGradient>
-            </defs>
-            <path d="M16 20C24 12 40 12 48 20C56 28 56 44 48 52C40 60 24 60 16 52C8 44 8 28 16 20Z" fill="url(#springGradient)" opacity="0.9" />
-            <path d="M20 28C26 22 38 22 44 28C50 34 50 46 44 52C38 58 26 58 20 52C14 46 14 34 20 28Z" fill="white" opacity="0.7" />
+            {/* Spring Boot — leaf */}
+            <circle cx="32" cy="32" r="26" fill="#6DB33F" />
+            <path
+              d="M44 18c-6-3-14-2-18 6-3 6-2 13 2 18-4-2-8-6-9-12C17 21 24 11 35 10c4-1 7 0 9 2z"
+              fill="white" opacity="0.9" />
+            <path
+              d="M20 46c6 3 14 2 18-6 3-6 2-13-2-18 4 2 8 6 9 12 2 9-5 19-16 20-4 1-7 0-9-2z"
+              fill="white" opacity="0.7" />
+            <circle cx="46" cy="18" r="3" fill="white" />
           </svg>
         );
 
       case 'express':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="expressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#000000" />
-                <stop offset="100%" stopColor="#333333" />
-              </linearGradient>
-            </defs>
-            <rect x="12" y="16" width="40" height="32" rx="8" fill="url(#expressGradient)" opacity="0.9" />
-            <path d="M20 28H44V36H20V28Z" fill="white" opacity="0.8" />
-            <path d="M28 36V44" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
+            {/* Express — dark background, wordmark style */}
+            <rect x="6" y="6" width="52" height="52" rx="10" fill="#1a1a1a" />
+            {/* e */}
+            <path d="M13 34a6 6 0 1 1 9.5-6.5" stroke="white" strokeWidth="2.2" fill="none" strokeLinecap="round" />
+            <line x1="13" y1="31" x2="22" y2="31" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
+            {/* x */}
+            <line x1="25" y1="27" x2="31" y2="35" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
+            <line x1="31" y1="27" x2="25" y2="35" stroke="white" strokeWidth="2.2" strokeLinecap="round" />
+            {/* simple bar for 'press' */}
+            <text x="33" y="35.5" fill="white" fontSize="9" fontFamily="monospace" fontWeight="bold">press</text>
           </svg>
         );
 
       case 'python':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="pythonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#3776AB" />
-                <stop offset="100%" stopColor="#2B5D86" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8C46.3594 8 58 19.6406 58 34C58 48.3594 46.3594 60 32 60C17.6406 60 6 48.3594 6 34C6 19.6406 17.6406 8 32 8Z" fill="url(#pythonGradient)" opacity="0.9" />
-            <path d="M24 28C24 22.4772 28.4772 18 34 18C39.5228 18 44 22.4772 44 28C44 33.5228 39.5228 38 34 38C28.4772 38 24 33.5228 24 28Z" fill="white" opacity="0.8" />
+            {/* Python — two snakes / official two-tone logo */}
+            {/* Blue snake (top) */}
+            <path
+              d="M32 8c-7 0-13 2-13 8v6h13v2H16c-4 0-8 2.5-8 8s4 8 8 8h4v-6c0-4 3-6 12-6s12 2 12 6v6h-4c-7 0-12-2-12-6"
+              fill="#3776AB" />
+            {/* Yellow snake (bottom) */}
+            <path
+              d="M32 56c7 0 13-2 13-8v-6H32v-2h16c4 0 8-2.5 8-8s-4-8-8-8h-4v6c0 4-3 6-12 6s-12-2-12-6v-6h4c7 0 12 2 12 6"
+              fill="#FFD43B" />
+            {/* Dots */}
+            <circle cx="27" cy="16" r="2" fill="white" />
+            <circle cx="37" cy="48" r="2" fill="white" />
           </svg>
         );
 
       case 'django':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="djangoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#092E20" />
-                <stop offset="100%" stopColor="#0C4B33" />
-              </linearGradient>
-            </defs>
-            <rect x="16" y="16" width="32" height="32" rx="8" fill="url(#djangoGradient)" opacity="0.9" />
-            <path d="M24 28L32 36L40 28" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-            <path d="M24 40L32 32L40 40" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
+            {/* Django — dark green square with D letterform */}
+            <rect x="8" y="8" width="48" height="48" rx="8" fill="#092E20" />
+            {/* D letterform stylised */}
+            <rect x="20" y="17" width="5" height="30" rx="2" fill="#44B78B" />
+            <path d="M25 17h8c5.5 0 10 4.5 10 10v10c0 5.5-4.5 10-10 10h-8"
+              stroke="#44B78B" strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         );
 
       case 'flask':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="flaskGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#000000" />
-                <stop offset="100%" stopColor="#333333" />
-              </linearGradient>
-            </defs>
-            <path d="M20 16L44 16L48 24L48 48C48 52.4183 44.4183 56 40 56L24 56C19.5817 56 16 52.4183 16 48L16 24L20 16Z" fill="url(#flaskGradient)" opacity="0.9" />
-            <path d="M28 24L36 24" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
-            <path d="M28 32L36 32" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
-            <path d="M28 40L36 40" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
+            {/* Flask — minimalist flask beaker */}
+            <rect x="6" y="6" width="52" height="52" rx="8" fill="#1a1a1a" />
+            {/* Flask neck */}
+            <rect x="26" y="12" width="12" height="14" rx="3" stroke="white" strokeWidth="2.5" fill="none" />
+            {/* Flask body */}
+            <path d="M22 26l-8 20c-1 3 1 6 4 6h28c3 0 5-3 4-6L42 26z"
+              stroke="white" strokeWidth="2.5" fill="none" strokeLinejoin="round" />
+            {/* Liquid */}
+            <path d="M18 44h28" stroke="white" strokeWidth="2" strokeLinecap="round" opacity="0.5" />
+            {/* Bubbles */}
+            <circle cx="28" cy="37" r="2" fill="white" opacity="0.6" />
+            <circle cx="36" cy="33" r="1.5" fill="white" opacity="0.6" />
           </svg>
         );
 
       case 'aws':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="awsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FF9900" />
-                <stop offset="100%" stopColor="#FF7700" />
-              </linearGradient>
-            </defs>
-            <rect x="12" y="16" width="40" height="32" rx="8" fill="url(#awsGradient)" opacity="0.9" />
-            <path d="M20 28L32 36L44 28" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-            <circle cx="32" cy="40" r="4" fill="white" opacity="0.7" />
+            {/* AWS — smile logo */}
+            {/* AWS text */}
+            <text x="11" y="33" fill="#FF9900" fontSize="16" fontWeight="bold" fontFamily="Arial, sans-serif">AWS</text>
+            {/* Arrow / smile arc */}
+            <path d="M10 42c12 8 32 8 44 0" stroke="#FF9900" strokeWidth="3" fill="none" strokeLinecap="round" />
+            {/* Arrowhead */}
+            <path d="M50 39l4 3-2 4" stroke="#FF9900" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         );
 
       case 'docker':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="dockerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#2496ED" />
-                <stop offset="100%" stopColor="#1B75BA" />
-              </linearGradient>
-            </defs>
-            <path d="M12 20L52 20L58 34L32 60L6 34L12 20Z" fill="url(#dockerGradient)" opacity="0.9" />
-            <path d="M20 28L44 28L38 36L26 36L20 28Z" fill="white" opacity="0.8" />
+            {/* Docker — whale with containers */}
+            {/* Containers stacked */}
+            <rect x="12" y="22" width="10" height="8" rx="1.5" stroke="#2496ED" strokeWidth="2" fill="none" />
+            <rect x="24" y="22" width="10" height="8" rx="1.5" stroke="#2496ED" strokeWidth="2" fill="none" />
+            <rect x="36" y="22" width="10" height="8" rx="1.5" stroke="#2496ED" strokeWidth="2" fill="none" />
+            <rect x="24" y="14" width="10" height="8" rx="1.5" stroke="#2496ED" strokeWidth="2" fill="none" />
+            <rect x="36" y="14" width="10" height="8" rx="1.5" stroke="#2496ED" strokeWidth="2" fill="none" />
+            {/* Whale body */}
+            <path d="M6 34c0 0 10 2 24 2s28-2 28-2c-2 8-10 14-28 14C12 48 6 42 6 34z"
+              fill="#2496ED" opacity="0.9" />
+            {/* Whale tail */}
+            <path d="M52 34c2-4 4-8 6-7-1 5-3 7-6 7z" fill="#2496ED" />
+            {/* Spout */}
+            <path d="M16 34c0-2-1-4-3-5" stroke="#2496ED" strokeWidth="2" strokeLinecap="round" />
           </svg>
         );
 
       case 'kubernetes':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="k8sGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#326CE5" />
-                <stop offset="100%" stopColor="#2A5BBD" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8L56 24L48 40L16 40L8 24L32 8Z" fill="url(#k8sGradient)" opacity="0.9" />
-            <path d="M20 24L44 24L36 36L20 36L20 24Z" fill="white" opacity="0.8" />
+            {/* Kubernetes — helm wheel / 7-spoke */}
+            <circle cx="32" cy="32" r="10" stroke="#326CE5" strokeWidth="3" fill="none" />
+            <circle cx="32" cy="32" r="4" fill="#326CE5" />
+            {/* 7 spokes */}
+            {[0, 51.4, 102.8, 154.2, 205.6, 257, 308.4].map((angle, i) => {
+              const rad = (angle * Math.PI) / 180;
+              const x1 = 32 + 10 * Math.cos(rad);
+              const y1 = 32 + 10 * Math.sin(rad);
+              const x2 = 32 + 24 * Math.cos(rad);
+              const y2 = 32 + 24 * Math.sin(rad);
+              return (
+                <g key={i}>
+                  <line x1={x1} y1={y1} x2={x2} y2={y2} stroke="#326CE5" strokeWidth="2.5" strokeLinecap="round" />
+                  <circle cx={x2} cy={y2} r="3" fill="#326CE5" />
+                </g>
+              );
+            })}
+            {/* Outer ring */}
+            <circle cx="32" cy="32" r="26" stroke="#326CE5" strokeWidth="1.5" fill="none" opacity="0.3" />
           </svg>
         );
 
       case 'azure':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="azureGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#0078D4" />
-                <stop offset="100%" stopColor="#005A9E" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8L56 32L32 56L8 32L32 8Z" fill="url(#azureGradient)" opacity="0.9" />
-            <path d="M24 24L40 24L32 40L24 24Z" fill="white" opacity="0.8" />
+            {/* Microsoft Azure — A triangle logo */}
+            <path d="M28 10L8 54h12l8-16 12 16h12L36 28z" fill="#0078D4" />
+            <path d="M36 10l4 14-16 20h20" fill="#50B5FF" opacity="0.85" />
           </svg>
         );
 
       case 'gcp':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="gcpGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#4285F4" />
-                <stop offset="100%" stopColor="#3367D6" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8L56 24L48 40L16 40L8 24L32 8Z" fill="url(#gcpGradient)" opacity="0.9" />
-            <path d="M20 24L44 24L36 36L20 36L20 24Z" fill="white" opacity="0.8" />
+            {/* Google Cloud — multi-colored cloud */}
+            {/* Cloud base shape */}
+            <path d="M44 38c5 0 9-4 9-9s-4-9-9-9c-1 0-2 0-3 .5C40 16 36 13 31 13c-7 0-12 5-12 12 0 .5 0 1 .1 1.5C16 27 13 30 13 34c0 4.4 3.6 8 8 8h23z"
+              fill="#4285F4" />
+            {/* Color segments */}
+            <path d="M13 34c0 4.4 3.6 8 8 8h8V26.5A12 12 0 0 0 19 26.6C16 27 13 30 13 34z" fill="#EA4335" opacity="0.9" />
+            <path d="M29 42h15c5 0 9-4 9-9s-4-9-9-9c-1 0-2 0-3 .5C40 16 36 13 31 13c-1 0-2 .1-2 .2V42z" fill="#34A853" opacity="0.9" />
+            <path d="M19.1 26.5C19 27 19 27.5 19 28c0 .5 0 1 .1 1.5L29 27V13.2A12 12 0 0 0 19 26.5z" fill="#FBBC05" opacity="0.9" />
           </svg>
         );
 
       case 'terraform':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="terraformGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#7B42BC" />
-                <stop offset="100%" stopColor="#6A37A4" />
-              </linearGradient>
-            </defs>
-            <rect x="16" y="16" width="32" height="32" rx="8" fill="url(#terraformGradient)" opacity="0.9" />
-            <path d="M24 28L32 36L40 28" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-            <path d="M24 40L32 32L40 40" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
+            {/* Terraform — three parallelogram blocks */}
+            {/* Top block */}
+            <path d="M30 8l18 10v11L30 19z" fill="#7B42BC" />
+            {/* Bottom left block */}
+            <path d="M10 19l18 10v22L10 41z" fill="#7B42BC" opacity="0.7" />
+            {/* Bottom right block */}
+            <path d="M30 29l18 10v16L30 45z" fill="#7B42BC" opacity="0.9" />
           </svg>
         );
 
       case 'postgresql':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="postgresGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#336791" />
-                <stop offset="100%" stopColor="#2C5278" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8C46.3594 8 58 19.6406 58 34C58 48.3594 46.3594 60 32 60C17.6406 60 6 48.3594 6 34C6 19.6406 17.6406 8 32 8Z" fill="url(#postgresGradient)" opacity="0.9" />
-            <path d="M24 28C24 22.4772 28.4772 18 34 18C39.5228 18 44 22.4772 44 28C44 33.5228 39.5228 38 34 38C28.4772 38 24 33.5228 24 28Z" fill="white" opacity="0.8" />
+            {/* PostgreSQL — elephant head */}
+            {/* Head */}
+            <ellipse cx="31" cy="30" rx="16" ry="18" fill="#336791" />
+            {/* Ear */}
+            <ellipse cx="47" cy="25" rx="6" ry="9" fill="#336791" stroke="#224d6e" strokeWidth="1" />
+            {/* Eye */}
+            <circle cx="36" cy="24" r="2.5" fill="white" />
+            <circle cx="36.5" cy="24.5" r="1.2" fill="#1a2e3d" />
+            {/* Tusk */}
+            <path d="M26 42c-2 4-3 8-1 10" stroke="white" strokeWidth="2.5" strokeLinecap="round" fill="none" opacity="0.8" />
+            {/* Trunk */}
+            <path d="M17 36c-4 4-5 8-3 12 1 3 4 4 6 2" stroke="#224d6e" strokeWidth="3"
+              strokeLinecap="round" fill="none" />
           </svg>
         );
 
       case 'mongodb':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="mongoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#47A841" />
-                <stop offset="100%" stopColor="#3A8A35" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8C46.3594 8 58 19.6406 58 34C58 48.3594 46.3594 60 32 60C17.6406 60 6 48.3594 6 34C6 19.6406 17.6406 8 32 8Z" fill="url(#mongoGradient)" opacity="0.9" />
-            <path d="M24 28C24 22.4772 28.4772 18 34 18C39.5228 18 44 22.4772 44 28C44 33.5228 39.5228 38 34 38C28.4772 38 24 33.5228 24 28Z" fill="white" opacity="0.8" />
+            {/* MongoDB — leaf */}
+            <path
+              d="M32 6c0 0-16 18-16 32a16 16 0 0 0 14 15.8V46s-6-2-6-14c0-8 8-22 8-22z"
+              fill="#47A841" />
+            <path
+              d="M32 6c0 0 16 18 16 32a16 16 0 0 1-14 15.8V46s6-2 6-14c0-8-8-22-8-22z"
+              fill="#47A841" opacity="0.7" />
+            {/* Stem */}
+            <line x1="32" y1="53" x2="32" y2="60" stroke="#47A841" strokeWidth="3" strokeLinecap="round" />
           </svg>
         );
 
       case 'mysql':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="mysqlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#4479A1" />
-                <stop offset="100%" stopColor="#376283" />
-              </linearGradient>
-            </defs>
-            <rect x="16" y="16" width="32" height="32" rx="8" fill="url(#mysqlGradient)" opacity="0.9" />
-            <path d="M24 28L32 36L40 28" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
+            {/* MySQL — dolphin */}
+            {/* Body */}
+            <path d="M16 38c0 0 4-16 20-22 12-4 18 2 18 10 0 10-12 16-20 14"
+              stroke="#4479A1" strokeWidth="3" fill="none" strokeLinecap="round" />
+            {/* Tail */}
+            <path d="M16 38l-6-4 2-8" stroke="#4479A1" strokeWidth="3"
+              strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            {/* Fin */}
+            <path d="M32 16c2-4 6-8 10-8-2 4-4 8-4 14" stroke="#4479A1" strokeWidth="2.5"
+              strokeLinecap="round" fill="none" />
+            {/* Eye */}
+            <circle cx="46" cy="26" r="2.5" fill="#4479A1" />
+            <circle cx="46" cy="26" r="1" fill="white" />
+            {/* MY text */}
+            <text x="12" y="56" fill="#4479A1" fontSize="10" fontWeight="bold" fontFamily="Arial">MySQL</text>
           </svg>
         );
 
       case 'redis':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="redisGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#DC382D" />
-                <stop offset="100%" stopColor="#B82E24" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8C46.3594 8 58 19.6406 58 34C58 48.3594 46.3594 60 32 60C17.6406 60 6 48.3594 6 34C6 19.6406 17.6406 8 32 8Z" fill="url(#redisGradient)" opacity="0.9" />
-            <path d="M24 28C24 22.4772 28.4772 18 34 18C39.5228 18 44 22.4772 44 28C44 33.5228 39.5228 38 34 38C28.4772 38 24 33.5228 24 28Z" fill="white" opacity="0.8" />
+            {/* Redis — stacked discs / cube */}
+            {/* Top ellipse */}
+            <ellipse cx="32" cy="20" rx="22" ry="8" fill="#DC382D" />
+            {/* Middle band */}
+            <rect x="10" y="20" width="44" height="14" fill="#A52222" />
+            {/* Bottom ellipse */}
+            <ellipse cx="32" cy="34" rx="22" ry="8" fill="#DC382D" />
+            {/* Second disc */}
+            <ellipse cx="32" cy="42" rx="22" ry="8" fill="#A52222" />
+            <rect x="10" y="42" width="44" height="8" fill="#8B1A1A" />
+            <ellipse cx="32" cy="50" rx="22" ry="8" fill="#DC382D" opacity="0.85" />
+            {/* Shine */}
+            <ellipse cx="26" cy="19" rx="8" ry="3" fill="white" opacity="0.15" />
           </svg>
         );
 
       case 'elasticsearch':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="elasticGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#005571" />
-                <stop offset="100%" stopColor="#003D51" />
-              </linearGradient>
-            </defs>
-            <rect x="16" y="16" width="32" height="32" rx="8" fill="url(#elasticGradient)" opacity="0.9" />
-            <path d="M24 28L32 36L40 28" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
-            <path d="M24 36L32 28L40 36" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" opacity="0.8" />
+            {/* Elasticsearch — magnifying glass + E */}
+            <circle cx="28" cy="28" r="16" stroke="#005571" strokeWidth="3.5" fill="none" />
+            <circle cx="28" cy="28" r="10" fill="#FEC514" opacity="0.9" />
+            {/* E lines */}
+            <line x1="22" y1="24" x2="34" y2="24" stroke="#005571" strokeWidth="2.5" strokeLinecap="round" />
+            <line x1="22" y1="28" x2="32" y2="28" stroke="#005571" strokeWidth="2.5" strokeLinecap="round" />
+            <line x1="22" y1="32" x2="34" y2="32" stroke="#005571" strokeWidth="2.5" strokeLinecap="round" />
+            {/* Handle */}
+            <line x1="40" y1="40" x2="54" y2="54" stroke="#005571" strokeWidth="4" strokeLinecap="round" />
           </svg>
         );
 
       case 'firebase':
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
-            <defs>
-              <linearGradient id="firebaseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FFCA28" />
-                <stop offset="100%" stopColor="#FFB300" />
-              </linearGradient>
-            </defs>
-            <path d="M32 8L56 24L48 40L16 40L8 24L32 8Z" fill="url(#firebaseGradient)" opacity="0.9" />
-            <path d="M24 24L40 24L32 40L24 24Z" fill="white" opacity="0.8" />
+            {/* Firebase — flame logo */}
+            {/* Left flame */}
+            <path d="M18 52L12 24l10 8z" fill="#FFA000" />
+            {/* Middle flame */}
+            <path d="M18 52L28 10l8 18z" fill="#F57C00" />
+            {/* Right flame */}
+            <path d="M18 52l18-14 12-24-8 14z" fill="#FFCA28" />
+            {/* Base */}
+            <path d="M12 24l6 28h24l4-28-16 14z" fill="#FFA000" opacity="0.85" />
+            {/* Bright center */}
+            <path d="M28 10l8 18-10 8 6 16h12l4-28z" fill="#FFCA28" opacity="0.9" />
           </svg>
         );
 
@@ -364,7 +383,8 @@ const TechIcon = ({ icon, className = '' }) => {
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
             <circle cx="32" cy="32" r="24" fill="#64748B" opacity="0.8" />
-            <text x="32" y="36" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" fontFamily="Arial, sans-serif">?</text>
+            <text x="32" y="36" textAnchor="middle" fill="white" fontSize="16"
+              fontWeight="bold" fontFamily="Arial, sans-serif">?</text>
           </svg>
         );
     }
@@ -465,7 +485,6 @@ const Technologies = () => {
   const scrollContainerRef = useRef(null);
   const autoScrollIntervalRef = useRef(null);
 
-  // Detect screen size
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
@@ -476,7 +495,6 @@ const Technologies = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Auto-scroll functionality
   useEffect(() => {
     if (!isMobile || !isAutoScrolling) return;
 
@@ -488,7 +506,7 @@ const Technologies = () => {
         scrollToIndex(next);
         return next;
       });
-    }, 3000); // Auto-scroll every 3 seconds
+    }, 3000);
 
     return () => {
       if (autoScrollIntervalRef.current) {
@@ -516,8 +534,6 @@ const Technologies = () => {
     const newIndex = currentIndex === 0 ? techCount - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
-
-    // Resume auto-scroll after 5 seconds
     setTimeout(() => setIsAutoScrolling(true), 5000);
   };
 
@@ -527,8 +543,6 @@ const Technologies = () => {
     const newIndex = (currentIndex + 1) % techCount;
     setCurrentIndex(newIndex);
     scrollToIndex(newIndex);
-
-    // Resume auto-scroll after 5 seconds
     setTimeout(() => setIsAutoScrolling(true), 5000);
   };
 
@@ -623,37 +637,25 @@ const Technologies = () => {
                     whileHover={{ y: -6 }}
                   >
                     <div className="group relative rounded-2xl border border-white/10 bg-slate-900/60 p-5 sm:p-6 shadow-lg shadow-black/20 transition h-full">
-                      {/* Particle Background Container */}
                       <div className="absolute inset-0 rounded-2xl overflow-hidden">
                         <ParticleBackground isActive={true} />
                       </div>
-
-                      {/* Card Content */}
                       <div className="relative z-10">
-                        {/* Icon */}
                         <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 transition-all duration-500 group-hover:scale-110 group-hover:from-indigo-500/20 group-hover:to-purple-500/20">
                           <TechIcon icon={tech.icon} className="h-8 w-8" />
                         </div>
-
-                        {/* Technology Name */}
                         <h3 className="text-lg font-semibold text-slate-100 group-hover:text-indigo-300 transition-colors">
                           {tech.name}
                         </h3>
-
-                        {/* Description */}
                         <p className="mt-3 text-sm text-slate-400 group-hover:text-slate-300 transition-colors line-clamp-3">
                           {tech.description}
                         </p>
-
-                        {/* Documentation Link */}
                         <div className="mt-4 flex items-center gap-2">
                           <span className="text-xs text-indigo-300 opacity-0 transition group-hover:opacity-100">
                             Documentation →
                           </span>
                         </div>
                       </div>
-
-                      {/* Hover Effects */}
                       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/0 via-purple-500/0 to-pink-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
                       <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 blur transition-opacity duration-500 group-hover:opacity-20" />
                     </div>
@@ -672,37 +674,25 @@ const Technologies = () => {
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     className="group relative rounded-2xl border border-white/10 bg-slate-900/60 p-6 shadow-lg shadow-black/20 transition"
                   >
-                    {/* Particle Background Container */}
                     <div className="absolute inset-0 rounded-2xl overflow-hidden">
                       <ParticleBackground isActive={true} />
                     </div>
-
-                    {/* Card Content */}
                     <div className="relative z-10">
-                      {/* Icon */}
                       <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 transition-all duration-500 group-hover:scale-110 group-hover:from-indigo-500/20 group-hover:to-purple-500/20">
                         <TechIcon icon={tech.icon} className="h-8 w-8" />
                       </div>
-
-                      {/* Technology Name */}
                       <h3 className="text-lg font-semibold text-slate-100 group-hover:text-indigo-300 transition-colors">
                         {tech.name}
                       </h3>
-
-                      {/* Description */}
                       <p className="mt-3 text-sm text-slate-400 group-hover:text-slate-300 transition-colors">
                         {tech.description}
                       </p>
-
-                      {/* Documentation Link */}
                       <div className="mt-4 flex items-center gap-2">
                         <span className="text-xs text-indigo-300 opacity-0 transition group-hover:opacity-100">
                           Documentation →
                         </span>
                       </div>
                     </div>
-
-                    {/* Hover Effects */}
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/0 via-purple-500/0 to-pink-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
                     <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 blur transition-opacity duration-500 group-hover:opacity-20" />
                   </motion.div>
@@ -722,8 +712,8 @@ const Technologies = () => {
                         setTimeout(() => setIsAutoScrolling(true), 5000);
                       }}
                       className={`h-2 rounded-full transition-all duration-300 ${index === currentIndex
-                          ? 'w-8 bg-indigo-500'
-                          : 'w-2 bg-slate-600 hover:bg-slate-500'
+                        ? 'w-8 bg-indigo-500'
+                        : 'w-2 bg-slate-600 hover:bg-slate-500'
                         }`}
                       aria-label={`Go to slide ${index + 1}`}
                     />
@@ -734,7 +724,6 @@ const Technologies = () => {
           </AnimatePresence>
         </div>
       </div>
-
     </section>
   );
 };
