@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { Send, AlertCircle, CheckCircle2, Loader2, X } from 'lucide-react';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +13,8 @@ const ContactSection = () => {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [activeInput, setActiveInput] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const inputRefs = useRef({});
@@ -81,14 +83,32 @@ const ContactSection = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitError('');
     const allTouched = { name: true, email: true, phone: true, company: true, message: true };
     setTouched(allTouched);
     const errs = validate(formData);
     setErrors(errs);
-    if (Object.keys(errs).length === 0) {
-      setSubmitted(true);
+    if (Object.keys(errs).length > 0) return;
+
+    setIsLoading(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setSubmitError(data.error || 'Failed to send message. Please try again.');
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setSubmitError('Network error. Please check your connection and try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -283,16 +303,37 @@ const ContactSection = () => {
                 )}
               </div>
 
+              {/* Error Banner */}
+              {submitError && (
+                <div className="flex items-start gap-3 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+                  <AlertCircle className="mt-0.5 h-4 w-4 flex-shrink-0" />
+                  <span className="flex-1">{submitError}</span>
+                  <button onClick={() => setSubmitError('')} className="flex-shrink-0 text-red-400 hover:text-red-200 transition-colors">
+                    <X className="h-4 w-4" />
+                  </button>
+                </div>
+              )}
+
               {/* Submit */}
               <button
                 type="submit"
-                className="group relative mt-4 w-full overflow-hidden rounded-xl md:rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 p-0.5"
+                disabled={isLoading}
+                className="group relative mt-4 w-full overflow-hidden rounded-xl md:rounded-2xl bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 p-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                <div className="flex items-center justify-center gap-2 rounded-[11px] md:rounded-[14px] bg-slate-950 px-6 py-3 md:py-4 transition-all duration-300 group-hover:bg-transparent">
-                  <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-sm md:text-base font-semibold text-transparent transition-all duration-300 group-hover:from-white group-hover:to-white">
-                    Send Message
-                  </span>
-                  <Send className="h-4 w-4 md:h-5 md:w-5 text-indigo-400 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
+                <div className="flex items-center justify-center gap-2 rounded-[11px] md:rounded-[14px] bg-slate-950 px-6 py-3 md:py-4 transition-all duration-300 group-hover:bg-transparent group-disabled:bg-slate-950">
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="h-4 w-4 md:h-5 md:w-5 animate-spin text-indigo-400" />
+                      <span className="text-sm md:text-base font-semibold text-indigo-400">Sending…</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-sm md:text-base font-semibold text-transparent transition-all duration-300 group-hover:from-white group-hover:to-white">
+                        Send Message
+                      </span>
+                      <Send className="h-4 w-4 md:h-5 md:w-5 text-indigo-400 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white" />
+                    </>
+                  )}
                 </div>
                 <div className="absolute inset-0 -z-10 bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 opacity-0 blur-xl transition-opacity duration-300 group-hover:opacity-100" />
               </button>
