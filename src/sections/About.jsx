@@ -62,12 +62,6 @@ const useIntersectionObserver = (options = {}) => {
 const About = () => {
   const [activeTab, setActiveTab] = useState('values');
   const [currentFeatureIndex, setCurrentFeatureIndex] = useState(0);
-  const [metrics, setMetrics] = useState({
-    performance: 0,
-    uptime: 0,
-    security: 0,
-    quality: 0
-  });
 
   const headerRef = useIntersectionObserver();
   const statsRef = useIntersectionObserver();
@@ -77,36 +71,6 @@ const About = () => {
   const achievementsRef = useIntersectionObserver();
   const ctaRef = useIntersectionObserver();
 
-  // Animate metrics on dashboard
-  useEffect(() => {
-    if (contentRef.isIntersecting) {
-      const targets = { performance: 98, uptime: 99.9, security: 95, quality: 97 };
-      const duration = 2000;
-      const steps = 60;
-      const stepDuration = duration / steps;
-
-      let currentStep = 0;
-      const interval = setInterval(() => {
-        currentStep++;
-        const progress = currentStep / steps;
-        const easeOut = 1 - Math.pow(1 - progress, 3);
-
-        setMetrics({
-          performance: targets.performance * easeOut,
-          uptime: targets.uptime * easeOut,
-          security: targets.security * easeOut,
-          quality: targets.quality * easeOut
-        });
-
-        if (currentStep >= steps) {
-          clearInterval(interval);
-          setMetrics(targets);
-        }
-      }, stepDuration);
-
-      return () => clearInterval(interval);
-    }
-  }, [contentRef.isIntersecting]);
 
   // Auto-rotate features
   useEffect(() => {
@@ -634,101 +598,67 @@ const About = () => {
             </div>
           </div>
 
-          {/* Right Column - Innovation Dashboard */}
+          {/* Right Column - Global Delivery Model */}
           <div className={`${contentRef.isIntersecting ? 'animate-fade-in-right delay-300' : 'opacity-0'}`}>
-            <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/95 to-slate-800/95 p-4 sm:p-5 shadow-2xl backdrop-blur-xl transition-all duration-700">
-              <div className="absolute inset-0 opacity-0 transition-opacity duration-700">
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
-              </div>
+            <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-gradient-to-br from-indigo-950/40 to-slate-900/40 p-6 md:p-8 shadow-2xl backdrop-blur-xl transition-all duration-700">
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
 
-              <div className="relative space-y-2.5 sm:space-y-3">
-                {/* Header */}
+              <div className="relative space-y-6">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="flex gap-1.5">
-                      <div className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
-                      <div className="h-2 w-2 animate-pulse rounded-full bg-yellow-500" style={{ animationDelay: '0.2s' }} />
-                      <div className="h-2 w-2 animate-pulse rounded-full bg-green-500" style={{ animationDelay: '0.4s' }} />
-                    </div>
-                    <div className="h-px w-6 sm:w-10 bg-gradient-to-r from-slate-700 to-transparent" />
+                  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                    <Activity className="h-3 w-3" />
+                    24/7 Global Operations
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <Activity className="h-3 w-3 text-green-400 animate-pulse" />
-                    <span className="text-[9px] sm:text-[10px] font-mono text-slate-500">LIVE</span>
-                  </div>
+                  <Globe className="h-5 w-5 text-indigo-400 animate-pulse" />
                 </div>
 
-                {/* Dashboard Title */}
-                <div className="flex items-center gap-2 border-b border-white/5 pb-2">
-                  <div className="rounded-lg bg-indigo-500/10 p-1.5">
-                    <Server className="h-3.5 w-3.5 text-indigo-400" />
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-semibold text-slate-200">Innovation Dashboard</h4>
-                    <p className="text-[9px] sm:text-[10px] text-slate-500">Real-time System Metrics</p>
-                  </div>
+                <div className="space-y-4">
+                  <h4 className="text-xl font-bold text-slate-50">Global Delivery Model</h4>
+                  <p className="text-sm text-slate-400 leading-relaxed">
+                    Our unique synergy connects strategy and execution across borders, ensuring peak productivity and cost-effective excellence.
+                  </p>
                 </div>
 
-                {/* Metrics */}
-                <div className="space-y-2">
-                  {[
-                    { label: 'System Performance', value: metrics.performance, color: 'from-blue-400 to-blue-600', icon: <Zap className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> },
-                    { label: 'Cloud Uptime', value: metrics.uptime, color: 'from-cyan-400 to-blue-500', icon: <Cloud className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> },
-                    { label: 'Security Score', value: metrics.security, color: 'from-indigo-400 to-blue-600', icon: <Shield className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> },
-                    { label: 'Code Quality', value: metrics.quality, color: 'from-sky-400 to-indigo-500', icon: <Code className="h-3 w-3 sm:h-3.5 sm:w-3.5" /> },
-                  ].map((metric, index) => (
-                    <div key={index} className="group/metric space-y-1 rounded-lg bg-slate-950/30 p-2 sm:p-2.5 transition-all duration-300 hover:bg-slate-950/50">
-                      <div className="flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-1.5">
-                          <div className="text-slate-400">{metric.icon}</div>
-                          <span className="font-medium text-slate-400 text-[10px] sm:text-xs">{metric.label}</span>
-                        </div>
-                        <span className="font-mono text-[10px] sm:text-xs font-semibold text-slate-300">
-                          {metric.value.toFixed(metric.label === 'Cloud Uptime' ? 1 : 0)}%
-                        </span>
+                <div className="grid gap-4">
+                  {/* Canada Node */}
+                  <div className="relative rounded-xl border border-white/5 bg-slate-950/40 p-4 transition-all duration-300 hover:border-indigo-500/30">
+                    <div className="flex items-center gap-3">
+                      <div className="rounded-lg bg-indigo-500/10 p-2 text-indigo-400">
+                        <Users className="h-4 w-4" />
                       </div>
-                      <div className="relative h-1.5 overflow-hidden rounded-full bg-slate-800">
-                        <div
-                          className={`h-full rounded-full bg-gradient-to-r ${metric.color} transition-all duration-1000 ease-out`}
-                          style={{ width: `${metric.value}%` }}
-                        >
-                          <div className="h-full w-full animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-                        </div>
+                      <div>
+                        <span className="block text-xs font-bold text-indigo-400 uppercase tracking-widest">Canada Office</span>
+                        <span className="text-sm font-semibold text-slate-200">Strategic Leadership</span>
                       </div>
                     </div>
-                  ))}
+                    <p className="mt-2 text-xs text-slate-500">
+                      Account Management, Program Strategy, and Consulting Lead.
+                    </p>
+                  </div>
+
+                  {/* Indian Node */}
+                  <div className="relative rounded-xl border border-white/5 bg-slate-950/40 p-4 transition-all duration-300 hover:border-purple-500/30">
+                    <div className="flex items-center gap-3">
+                      <div className="rounded-lg bg-purple-500/10 p-2 text-purple-400">
+                        <Code className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <span className="block text-xs font-bold text-purple-400 uppercase tracking-widest">Offshore Labs (India)</span>
+                        <span className="text-sm font-semibold text-slate-200">Technical Excellence</span>
+                      </div>
+                    </div>
+                    <p className="mt-2 text-xs text-slate-500">
+                      Product Development, QA, and Technical Training Centers.
+                    </p>
+                  </div>
                 </div>
 
-                {/* Code Block */}
-                <div className="group/code relative overflow-hidden rounded-lg border border-slate-800/50 bg-slate-950/70 p-2 sm:p-2.5 font-mono text-[9px] sm:text-[10px] backdrop-blur-sm transition-all duration-300 hover:border-indigo-500/30">
-                  <div className="absolute right-2 top-2 rounded bg-slate-800/50 px-1.5 py-0.5 text-[8px] sm:text-[9px] text-slate-500">TS</div>
-                  <div className="space-y-0.5">
-                    <div className="text-purple-400"><span className="text-slate-500">interface</span> Innovation {'{'}</div>
-                    <div className="ml-2 sm:ml-3 text-blue-400">ai: <span className="text-yellow-400">'advanced'</span>;</div>
-                    <div className="ml-2 sm:ml-3 text-blue-400">scalability: <span className="text-yellow-400">'infinite'</span>;</div>
-                    <div className="ml-2 sm:ml-3 text-blue-400">security: <span className="text-yellow-400">'paramount'</span>;</div>
-                    <div className="text-purple-400">{'}'};
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/5 to-transparent opacity-0 transition-opacity duration-300 group-hover/code:opacity-100" />
-                </div>
-
-                {/* Status Grid */}
-                <div className="grid grid-cols-2 gap-2 pt-0.5">
-                  <div className="group/status card-hover-effect overflow-hidden rounded-lg border border-slate-800/50 bg-slate-950/30 p-2 sm:p-2.5 text-center transition-all duration-300 hover:border-indigo-500/30 hover:bg-slate-950/50">
-                    <div className="mb-1 flex items-center justify-center">
-                      <Wifi className="h-3.5 w-3.5 text-indigo-400" />
-                    </div>
-                    <div className="text-lg sm:text-xl font-bold text-indigo-400 transition-all duration-300 group-hover/status:scale-110">24/7</div>
-                    <div className="text-[9px] sm:text-[10px] text-slate-400">Support</div>
-                  </div>
-                  <div className="group/status card-hover-effect overflow-hidden rounded-lg border border-slate-800/50 bg-slate-950/30 p-2 sm:p-2.5 text-center transition-all duration-300 hover:border-purple-500/30 hover:bg-slate-950/50">
-                    <div className="mb-1 flex items-center justify-center">
-                      <Database className="h-3.5 w-3.5 text-purple-400" />
-                    </div>
-                    <div className="text-lg sm:text-xl font-bold text-purple-400 transition-all duration-300 group-hover/status:scale-110">100%</div>
-                    <div className="text-[9px] sm:text-[10px] text-slate-400">Satisfaction</div>
-                  </div>
+                {/* Connection Line Visualization */}
+                <div className="relative pt-4 text-center">
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent" />
+                  <p className="text-[11px] font-medium text-slate-500 italic">
+                    "Bridging the time zones to deliver excellence while you sleep"
+                  </p>
                 </div>
               </div>
             </div>

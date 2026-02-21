@@ -1,23 +1,44 @@
 import React, { useEffect, useRef } from 'react';
 import { Star, TrendingUp, Shield, Zap } from 'lucide-react';
 
+const LogoImage = ({ src, alt, fallbackText }) => {
+  const [hasError, setHasError] = React.useState(false);
+
+  if (!src || hasError) {
+    return (
+      <div className="flex h-full w-full items-center justify-center text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+        {fallbackText}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="h-full w-full object-contain p-2 transition-transform duration-300 group-hover:scale-110"
+      onError={() => setHasError(true)}
+    />
+  );
+};
+
 const Clients = () => {
   const scrollRef = useRef(null);
 
   // Sample clients data - replace with your actual data
   const clients = [
-    'TechCorp Solutions',
-    'Global Industries',
-    'Innovation Labs',
-    'Digital Ventures',
-    'Future Systems',
-    'Smart Enterprises',
-    'Cloud Networks',
-    'Data Dynamics',
-    'Quantum Tech',
-    'NextGen Solutions',
-    'Alpha Systems',
-    'Beta Corporation'
+    {
+      name: 'Fat2Fit',
+      domain: 'fat2fitxpress.com',
+      logo: '/Images/fat2fit-logo.png',
+      testimonial: 'KAAV transformed our fitness platform with a seamless UI and robust backend. Their expertise in React and Node.js is top-notch.'
+    },
+    {
+      name: 'VenX',
+      domain: 'venx.co.in',
+      logo: '/Images/venx-logo.png',
+      testimonial: 'The team at KAAV delivered a high-performance solution that exceeded our expectations. Their attention to detail and technical skill is exceptional.'
+    }
   ];
 
   const stats = [
@@ -36,11 +57,11 @@ const Clients = () => {
 
     const scroll = () => {
       scrollPosition += scrollSpeed;
-      
+
       if (scrollPosition >= scrollContainer.scrollWidth / 2) {
         scrollPosition = 0;
       }
-      
+
       scrollContainer.scrollLeft = scrollPosition;
     };
 
@@ -50,7 +71,7 @@ const Clients = () => {
   }, []);
 
   // Duplicate clients for seamless loop
-  const duplicatedClients = [...clients, ...clients, ...clients];
+  const duplicatedClients = [...clients, ...clients, ...clients, ...clients, ...clients, ...clients];
 
   return (
     <section id="clients" className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950/20 to-slate-950 py-20">
@@ -72,7 +93,7 @@ const Clients = () => {
             <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent"> Industry Leaders</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-slate-400">
-            Join hundreds of companies that trust us to deliver innovative solutions and drive their digital transformation
+            Partnering with visionary brands to deliver innovative solutions and drive their digital transformation
           </p>
         </div>
 
@@ -92,7 +113,7 @@ const Clients = () => {
               <div
                 key={index}
                 className="group relative flex-shrink-0"
-                style={{ width: '280px' }}
+                style={{ width: '320px' }}
               >
                 <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/60 to-slate-800/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-indigo-500/50 hover:bg-slate-900/80">
                   {/* Hover Glow Effect */}
@@ -100,20 +121,22 @@ const Clients = () => {
 
                   {/* Content */}
                   <div className="relative">
-                    {/* Logo Placeholder */}
-                    <div className="mb-4 flex h-12 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/10 to-purple-500/10 ring-1 ring-white/10">
-                      <div className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                        {client.split(' ').map(word => word[0]).join('')}
-                      </div>
+                    {/* Logo/Logo Placeholder */}
+                    <div className="mb-4 flex h-16 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/5 to-purple-500/5 ring-1 ring-white/10 overflow-hidden">
+                      <LogoImage
+                        src={client.logo}
+                        alt={`${client.name} logo`}
+                        fallbackText={client.name}
+                      />
                     </div>
 
                     {/* Company Name */}
-                    <h3 className="mb-2 text-lg font-semibold text-white transition-colors group-hover:text-indigo-300">
-                      {client}
+                    <h3 className="mb-2 text-lg font-semibold text-white transition-colors group-hover:text-indigo-300 text-center">
+                      {client.name}
                     </h3>
 
                     {/* Rating */}
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center justify-center gap-1">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
@@ -127,8 +150,8 @@ const Clients = () => {
                     <div className="my-4 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
                     {/* Quote/Testimonial */}
-                    <p className="text-sm italic text-slate-400">
-                      "Outstanding service and exceptional results"
+                    <p className="text-sm italic text-slate-400 text-center min-h-[60px]">
+                      "{client.testimonial}"
                     </p>
                   </div>
                 </div>
@@ -138,7 +161,7 @@ const Clients = () => {
         </div>
 
         {/* Stats Grid */}
-        
+
 
         {/* Bottom CTA */}
         <div className="mx-auto mt-16 max-w-4xl px-6 text-center lg:px-8">
@@ -154,7 +177,7 @@ const Clients = () => {
               const contactSection = document.querySelector('#contact');
               if (contactSection) {
                 contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                
+
                 // Focus on name input after scroll completes
                 setTimeout(() => {
                   const nameInput = document.querySelector('input[name="name"]');

@@ -20,12 +20,6 @@ const Footer = () => {
     'Clients'
   ];
 
-  const legal = [
-    'Privacy Policy',
-    'Terms of Service',
-    'Cookie Policy'
-  ];
-
 
   return (
     <footer className="relative overflow-hidden border-t border-white/5 bg-gradient-to-b from-slate-950 to-black">
@@ -39,9 +33,11 @@ const Footer = () => {
             {/* Brand Section - Takes more space */}
             <div className="lg:col-span-4">
               <div className="mb-4">
-                <h3 className="mb-2 bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-2xl font-bold text-transparent">
-                  KAAV
-                </h3>
+                <img
+                  src="/Images/KAAV-ITES-DARK.png"
+                  alt="Kavv Logos"
+                  className="h-12 w-auto max-h-full object-contain transform scale-110 hover:scale-125 transition-transform duration-200"
+                />
                 <p className="text-sm text-slate-400">
                   Transforming ideas into powerful digital solutions
                 </p>
@@ -66,7 +62,7 @@ const Footer = () => {
             </div>
 
             {/* Links Section - Compact grid */}
-            <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-8">
+            <div className="grid grid-cols-2 gap-8 lg:col-span-8">
               {/* Services */}
               <div>
                 <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-300">
@@ -94,26 +90,6 @@ const Footer = () => {
                 </h4>
                 <ul className="space-y-2 text-sm">
                   {company.map((item) => (
-                    <li key={item}>
-                      <a
-                        href="#"
-                        className="group inline-flex items-center gap-1 text-slate-400 transition-colors hover:text-indigo-400"
-                      >
-                        {item}
-                        <ArrowUpRight className="h-3 w-3 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Legal */}
-              <div>
-                <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-300">
-                  Legal
-                </h4>
-                <ul className="space-y-2 text-sm">
-                  {legal.map((item) => (
                     <li key={item}>
                       <a
                         href="#"

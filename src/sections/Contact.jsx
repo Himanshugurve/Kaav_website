@@ -17,6 +17,7 @@ const ContactSection = () => {
   const [submitError, setSubmitError] = useState('');
   const [activeInput, setActiveInput] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [activeMap, setActiveMap] = useState('canada'); // 'canada' or 'indore'
   const inputRefs = useRef({});
 
   useEffect(() => {
@@ -367,6 +368,23 @@ const ContactSection = () => {
               </div>
             </div>
 
+            {/* Offshore Development Center */}
+            <div className="group relative overflow-hidden rounded-xl md:rounded-2xl border border-white/10 bg-slate-900/40 p-4 md:p-5 backdrop-blur-md transition-all duration-300 hover:border-indigo-500/50 hover:bg-slate-900/60">
+              <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-indigo-500/10 blur-2xl transition-all duration-500 group-hover:scale-150" />
+              <div className="relative flex items-start gap-3 md:gap-4">
+                <div className="rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 p-2.5 shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="mb-1 text-sm font-semibold text-white">Offshore Development Center - Kodvix Technologies</h4>
+                  <p className="text-xs md:text-sm leading-relaxed text-slate-400">405, Trade House, 14 South Tukoganj Rd<br />Manorama Ganj, Indore, Madhya Pradesh</p>
+                </div>
+              </div>
+            </div>
+
             {/* Email */}
             <div className="group relative overflow-hidden rounded-xl md:rounded-2xl border border-white/10 bg-slate-900/40 p-4 md:p-5 backdrop-blur-md transition-all duration-300 hover:border-cyan-500/50 hover:bg-slate-900/60">
               <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-cyan-500/10 blur-2xl transition-all duration-500 group-hover:scale-150" />
@@ -385,7 +403,7 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Phone */}
+            {/* Contact Number */}
             <div className="group relative overflow-hidden rounded-xl md:rounded-2xl border border-white/10 bg-slate-900/40 p-4 md:p-5 backdrop-blur-md transition-all duration-300 hover:border-purple-500/50 hover:bg-slate-900/60">
               <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-purple-500/10 blur-2xl transition-all duration-500 group-hover:scale-150" />
               <div className="relative flex items-start gap-3 md:gap-4">
@@ -395,41 +413,57 @@ const ContactSection = () => {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="mb-1 text-sm font-semibold text-white">Phone Number</h4>
+                  <h4 className="mb-1 text-sm font-semibold text-white">Contact Number</h4>
                   <a href="tel:+12498765343" className="block text-xs md:text-sm text-slate-400 hover:text-purple-400 transition-colors">+1 (249) 876-5343</a>
                   <p className="text-xs text-slate-500">Mon-Fri, 9am-6pm EST</p>
                 </div>
               </div>
             </div>
-            {/* Hours */}
-            <div className="group relative overflow-hidden rounded-xl md:rounded-2xl border border-white/10 bg-slate-900/40 p-4 md:p-5 backdrop-blur-md transition-all duration-300 hover:border-emerald-500/50 hover:bg-slate-900/60">
-              <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-emerald-500/10 blur-2xl transition-all duration-500 group-hover:scale-150" />
-              <div className="relative flex items-start gap-3 md:gap-4">
-                <div className="rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 p-2.5 shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                  <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
-                    <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.5" />
-                    <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="mb-1 text-sm font-semibold text-white">Business Hours</h4>
-                  <p className="text-xs md:text-sm text-slate-400">Mon–Fri: 9:00 AM – 6:00 PM</p>
-                  <p className="text-xs md:text-sm text-slate-400">Sat: 10:00 AM – 4:00 PM</p>
-                </div>
-              </div>
-            </div>
           </div>
 
-          {/* Map */}
-          <div className="relative h-48 md:h-64 overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5780.774524116524!2d-79.75764802400647!3d43.57764935731421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b6a13160ba61d%3A0x81c04cfa439621e3!2s6452%20Chaumont%20Crescent%2C%20Mississauga%2C%20ON%20L5N%202M8!5e0!3m2!1sen!2sca!4v1771699489719!5m2!1sen!2sca"
-              width="100%" height="100%"
-              style={{ border: 0 }} allowFullScreen="" loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="brightness-75 grayscale transition-all duration-500 hover:brightness-100 hover:grayscale-0"
-              title="KAAV Office - Mississauga, Canada"
-            />
+          {/* Map Tabs */}
+          <div className="flex border-b border-white/10 bg-slate-900/40">
+            <button
+              onClick={() => setActiveMap('canada')}
+              className={`flex-1 px-4 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeMap === 'canada'
+                ? 'bg-indigo-500/20 text-indigo-400 border-b-2 border-indigo-500'
+                : 'text-slate-500 hover:text-slate-300 hover:bg-white/5'
+                }`}
+            >
+              Mississauga, Canada
+            </button>
+            <button
+              onClick={() => setActiveMap('indore')}
+              className={`flex-1 px-4 py-3 text-xs font-bold uppercase tracking-wider transition-all duration-300 ${activeMap === 'indore'
+                ? 'bg-purple-500/20 text-purple-400 border-b-2 border-purple-500'
+                : 'text-slate-500 hover:text-slate-300 hover:bg-white/5'
+                }`}
+            >
+              Indore, India
+            </button>
+          </div>
+
+          {/* Map Container */}
+          <div className="relative h-48 md:h-80 overflow-hidden">
+            {activeMap === 'canada' ? (
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5780.774524116524!2d-79.75764802400647!3d43.57764935731421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b6a13160ba61d%3A0x81c04cfa439621e3!2s6452%20Chaumont%20Crescent%2C%20Mississauga%2C%20ON%20L5N%202M8!5e0!3m2!1sen!2sca!4v1771699489719!5m2!1sen!2sca"
+                width="100%" height="100%"
+                style={{ border: 0 }} allowFullScreen="" loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="brightness-75 grayscale transition-all duration-500 hover:brightness-100 hover:grayscale-0"
+                title="KAAV Office - Mississauga, Canada"
+              />
+            ) : (
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3680.2826590759278!2d75.87508417519489!3d22.71773302763568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8396a847fd529cf5%3A0xfe2e5d48b30a899d!2sKodvix%20Technologies!5e0!3m2!1sen!2sca!4v1771714274535!5m2!1sen!2sca"
+                width="100%" height="100%"
+                style={{ border: 0 }} allowFullScreen="" loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="brightness-75 grayscale transition-all duration-500 hover:brightness-100 hover:grayscale-0"
+                title="Offshore Development Center - Indore, India"
+              />
+            )}
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
           </div>
         </div>
