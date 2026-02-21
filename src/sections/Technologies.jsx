@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { technologies } from '../data/technologies';
 
 const tabs = [
+  { key: 'ai', label: 'AI' },
   { key: 'frontend', label: 'Frontend' },
   { key: 'backend', label: 'Backend' },
   { key: 'cloud', label: 'Cloud & DevOps' },
@@ -379,6 +380,79 @@ const TechIcon = ({ icon, className = '' }) => {
           </svg>
         );
 
+      case 'llm':
+        return (
+          <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
+            {/* Neural network nodes */}
+            <circle cx="12" cy="20" r="5" fill="#A78BFA" />
+            <circle cx="12" cy="44" r="5" fill="#A78BFA" />
+            <circle cx="32" cy="12" r="5" fill="#818CF8" />
+            <circle cx="32" cy="32" r="6" fill="#6366F1" />
+            <circle cx="32" cy="52" r="5" fill="#818CF8" />
+            <circle cx="52" cy="20" r="5" fill="#A78BFA" />
+            <circle cx="52" cy="44" r="5" fill="#A78BFA" />
+            {/* Connections */}
+            <line x1="17" y1="20" x2="27" y2="14" stroke="#818CF8" strokeWidth="1.5" opacity="0.7" />
+            <line x1="17" y1="20" x2="26" y2="32" stroke="#818CF8" strokeWidth="1.5" opacity="0.7" />
+            <line x1="17" y1="44" x2="26" y2="32" stroke="#818CF8" strokeWidth="1.5" opacity="0.7" />
+            <line x1="17" y1="44" x2="27" y2="50" stroke="#818CF8" strokeWidth="1.5" opacity="0.7" />
+            <line x1="38" y1="14" x2="47" y2="20" stroke="#818CF8" strokeWidth="1.5" opacity="0.7" />
+            <line x1="38" y1="32" x2="47" y2="20" stroke="#818CF8" strokeWidth="1.5" opacity="0.7" />
+            <line x1="38" y1="32" x2="47" y2="44" stroke="#818CF8" strokeWidth="1.5" opacity="0.7" />
+            <line x1="38" y1="50" x2="47" y2="44" stroke="#818CF8" strokeWidth="1.5" opacity="0.7" />
+            {/* Pulse ring */}
+            <circle cx="32" cy="32" r="12" stroke="#6366F1" strokeWidth="1" opacity="0.3" fill="none" />
+          </svg>
+        );
+
+      case 'agentic':
+        return (
+          <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
+            {/* Agent head */}
+            <rect x="18" y="10" width="28" height="24" rx="8" fill="#6366F1" />
+            {/* Eyes */}
+            <circle cx="26" cy="22" r="3.5" fill="white" />
+            <circle cx="38" cy="22" r="3.5" fill="white" />
+            <circle cx="27" cy="22" r="1.5" fill="#1e1b4b" />
+            <circle cx="39" cy="22" r="1.5" fill="#1e1b4b" />
+            {/* Antenna */}
+            <line x1="32" y1="10" x2="32" y2="4" stroke="#818CF8" strokeWidth="2" strokeLinecap="round" />
+            <circle cx="32" cy="3" r="2" fill="#A78BFA" />
+            {/* Body */}
+            <rect x="22" y="36" width="20" height="16" rx="4" fill="#4F46E5" />
+            {/* Arms */}
+            <rect x="10" y="37" width="10" height="6" rx="3" fill="#6366F1" />
+            <rect x="44" y="37" width="10" height="6" rx="3" fill="#6366F1" />
+            {/* Chest light */}
+            <circle cx="32" cy="44" r="3" fill="#818CF8" opacity="0.8" />
+          </svg>
+        );
+
+      case 'aiworkflow':
+        return (
+          <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
+            {/* Pipeline nodes */}
+            <rect x="4" y="26" width="14" height="12" rx="4" fill="#6366F1" />
+            <rect x="25" y="26" width="14" height="12" rx="4" fill="#8B5CF6" />
+            <rect x="46" y="26" width="14" height="12" rx="4" fill="#A78BFA" />
+            {/* Connecting arrows */}
+            <path d="M18 32h7" stroke="#818CF8" strokeWidth="2" strokeLinecap="round" />
+            <path d="M23 29l2 3-2 3" stroke="#818CF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M39 32h7" stroke="#818CF8" strokeWidth="2" strokeLinecap="round" />
+            <path d="M44 29l2 3-2 3" stroke="#818CF8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            {/* Top branch */}
+            <rect x="25" y="8" width="14" height="10" rx="3" fill="#4F46E5" opacity="0.85" />
+            <line x1="32" y1="18" x2="32" y2="26" stroke="#818CF8" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 2" />
+            {/* Bottom branch */}
+            <rect x="25" y="46" width="14" height="10" rx="3" fill="#4F46E5" opacity="0.85" />
+            <line x1="32" y1="38" x2="32" y2="46" stroke="#818CF8" strokeWidth="2" strokeLinecap="round" strokeDasharray="2 2" />
+            {/* Spark / AI indicator */}
+            <circle cx="11" cy="32" r="2" fill="white" opacity="0.8" />
+            <circle cx="32" cy="32" r="2" fill="white" opacity="0.8" />
+            <circle cx="53" cy="32" r="2" fill="white" opacity="0.8" />
+          </svg>
+        );
+
       default:
         return (
           <svg viewBox="0 0 64 64" className={`w-full h-full ${className}`} fill="none">
@@ -478,7 +552,7 @@ const ParticleBackground = ({ isActive }) => {
 };
 
 const Technologies = () => {
-  const [activeTab, setActiveTab] = useState('frontend');
+  const [activeTab, setActiveTab] = useState('ai');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const [isMobile, setIsMobile] = useState(false);

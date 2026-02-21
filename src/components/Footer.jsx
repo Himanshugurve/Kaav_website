@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Instagram, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -26,12 +26,6 @@ const Footer = () => {
     'Cookie Policy'
   ];
 
-  const socialLinks = [
-    { icon: Twitter, href: '#', label: 'Twitter', color: 'hover:text-blue-400' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:text-blue-500' },
-    { icon: Github, href: '#', label: 'GitHub', color: 'hover:text-slate-300' },
-    { icon: Instagram, href: '#', label: 'Instagram', color: 'hover:text-pink-400' }
-  ];
 
   return (
     <footer className="relative overflow-hidden border-t border-white/5 bg-gradient-to-b from-slate-950 to-black">
@@ -61,27 +55,14 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-2 transition-colors hover:text-indigo-400">
                   <Phone className="h-3.5 w-3.5" />
-                  <a href="tel:+1234567890">+1 (234) 567-890</a>
+                  <a href="tel:+12498765343">+1 (249) 876-5343</a>
                 </div>
                 <div className="flex items-start gap-2">
                   <MapPin className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" />
-                  <span>123 Innovation Drive, San Francisco, CA 94103</span>
+                  <span>6452 Chaumont Crescent, Mississauga, ON L5N 2M8, Canada</span>
                 </div>
               </div>
 
-              {/* Social Links */}
-              <div className="mt-6 flex gap-3">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    aria-label={social.label}
-                    className={`group relative flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-slate-900/50 transition-all duration-300 ${social.color} hover:border-indigo-500/50 hover:bg-slate-900`}
-                  >
-                    <social.icon className="h-4 w-4 text-slate-400 transition-colors group-hover:text-current" />
-                  </a>
-                ))}
-              </div>
             </div>
 
             {/* Links Section - Compact grid */}
@@ -156,7 +137,7 @@ const Footer = () => {
               © {currentYear} Kaav Technology. All rights reserved.
             </p>
 
-           
+
           </div>
         </div>
       </div>

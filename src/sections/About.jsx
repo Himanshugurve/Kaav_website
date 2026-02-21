@@ -141,10 +141,10 @@ const About = () => {
   ];
 
   const stats = [
-    { value: '500+', label: 'Projects Delivered', icon: <Award /> },
-    { value: '98%', label: 'Client Satisfaction', icon: <Heart /> },
-    { value: '50+', label: 'Enterprise Clients', icon: <Users /> },
-    { value: '15+', label: 'Countries Served', icon: <Globe /> },
+    { value: '10+', label: 'Successful Projects', icon: <Award /> },
+    { value: '2500+', label: 'Working Hours', icon: <Activity /> },
+    { value: '20+', label: 'Expert Team Members', icon: <Users /> },
+    { value: '5+', label: 'Happy Clients', icon: <Heart /> },
   ];
 
   // KAAV Principles
@@ -406,7 +406,7 @@ const About = () => {
           </div>
           <div className="grid gap-3 text-sm sm:text-base text-slate-300 leading-relaxed px-4 sm:px-0">
             <p>
-              At KAAV IT Enabling Services, we empower businesses to bridge strategy and execution through cutting-edge IT solutions, training, and outsourcing. Founded as a Canada-based firm with a global delivery model, we connect skilled teams in India with companies across Canada and beyond, delivering high-quality, cost-effective technology solutions without compromising excellence.
+              At KAAV, we empower businesses to bridge strategy and execution through cutting-edge IT solutions, training, and outsourcing. Founded as a Canada-based firm with a global delivery model, we connect skilled teams in India with companies across Canada and beyond, delivering high-quality, cost-effective technology solutions without compromising excellence.
             </p>
             <p className="relative">
               <span className="inline-flex items-baseline gap-2 flex-wrap">
@@ -570,32 +570,32 @@ const About = () => {
                   <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-indigo-400" />
                   Why Choose Us?
                 </h4>
-                
+
                 <div className="space-y-4">
                   {[
-                    { 
-                      icon: <Award className="h-5 w-5" />, 
-                      text: '500+ Projects', 
+                    {
+                      icon: <Award className="h-5 w-5" />,
+                      text: '500+ Projects',
                       description: 'Successfully delivered across diverse industries with proven results',
-                      color: 'from-blue-500 to-cyan-500' 
+                      color: 'from-blue-500 to-cyan-500'
                     },
-                    { 
-                      icon: <Zap className="h-5 w-5" />, 
-                      text: 'End-to-End Solutions', 
+                    {
+                      icon: <Zap className="h-5 w-5" />,
+                      text: 'End-to-End Solutions',
                       description: 'From concept to deployment, we handle every aspect of your project',
-                      color: 'from-indigo-500 to-purple-500' 
+                      color: 'from-indigo-500 to-purple-500'
                     },
-                    { 
-                      icon: <Users className="h-5 w-5" />, 
-                      text: '24/7 Support', 
+                    {
+                      icon: <Users className="h-5 w-5" />,
+                      text: '24/7 Support',
                       description: 'Dedicated team available round-the-clock for seamless assistance',
-                      color: 'from-purple-500 to-pink-500' 
+                      color: 'from-purple-500 to-pink-500'
                     },
-                    { 
-                      icon: <Target className="h-5 w-5" />, 
-                      text: 'Agile & Transparent', 
+                    {
+                      icon: <Target className="h-5 w-5" />,
+                      text: 'Agile & Transparent',
                       description: 'Flexible development approach with complete project visibility',
-                      color: 'from-green-500 to-emerald-500' 
+                      color: 'from-green-500 to-emerald-500'
                     },
                   ].map((item, index) => (
                     <div
@@ -614,7 +614,7 @@ const About = () => {
                           </div>
                         </div>
                       </div>
-                      
+
                       {/* Text Content */}
                       <div className="flex-1">
                         <span className="block text-base sm:text-lg md:text-xl font-semibold text-slate-300 transition-colors duration-300 group-hover:text-slate-50">
@@ -624,7 +624,7 @@ const About = () => {
                           {item.description}
                         </span>
                       </div>
-                      
+
                       {/* Expanding line */}
                       <div className="ml-auto h-px w-0 bg-gradient-to-r from-indigo-500 to-transparent transition-all duration-300 group-hover:w-10" />
                     </div>
