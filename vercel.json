@@ -1,0 +1,25 @@
+{
+    "redirects": [
+        {
+            "source": "/Images/kaavv.png",
+            "destination": "/Images/KAAV-LOGO-CB.png",
+            "permanent": true
+        },
+        {
+            "source": "/favicon.png",
+            "destination": "/favicon.png",
+            "permanent": false
+        }
+    ],
+    "headers": [
+        {
+            "source": "/favicon.(ico|png|svg)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "public, max-age=86400"
+                }
+            ]
+        }
+    ]
+}
