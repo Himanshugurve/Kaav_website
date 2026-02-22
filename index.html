@@ -13,14 +13,16 @@
     })(window, document, 'script', 'dataLayer', '%VITE_GTM_ID%');</script>
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/Images/KAAV-LOGO-CB.png" />
-  <link rel="icon" type="image/x-icon" href="/Images/KAAV-LOGO-CB.png" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" href="/Images/KAAV-LOGO-CB.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/Images/KAAV-LOGO-CB.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
   <!-- SEO Meta Tags -->
-  <title>KAAV IT Enabling Services | IT Consulting & Global Delivery Model</title>
+  <title>KAAV IT Enabling Services | IT Consulting &amp; Global Delivery Model</title>
   <meta name="description"
     content="KAAV IT Enabling Services offers cutting-edge IT consulting, software development, and offshore delivery models. Bridging strategic leadership in Canada with technical excellence in India." />
   <meta name="keywords"
@@ -32,30 +34,42 @@
   <!-- Social Media (Open Graph / Facebook) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kaav-ites.com/" />
+  <meta property="og:locale" content="en_CA" />
   <meta property="og:site_name" content="KAAV IT Enabling Services" />
   <meta property="og:title" content="KAAV IT Enabling Services | Bridging Strategy and Execution" />
   <meta property="og:description"
     content="Transforming ideas into digital reality with our global delivery model. Strategic leadership in Canada and technical excellence in India." />
   <meta property="og:image" content="https://kaav-ites.com/Images/KAAV-LOGO-CB.png" />
+  <meta property="og:image:alt" content="KAAV IT Enabling Services Logo" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Social Media (Twitter) -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://kaav-ites.com/" />
-  <meta property="twitter:title" content="KAAV IT Enabling Services | IT Consulting & Development" />
+  <meta property="twitter:title" content="KAAV IT Enabling Services | IT Consulting &amp; Development" />
   <meta property="twitter:description"
     content="Expert IT solutions powered by a global synergy. Consulting, Software Development, and Offshore Labs." />
   <meta property="twitter:image" content="https://kaav-ites.com/Images/KAAV-LOGO-CB.png" />
+  <meta property="twitter:image:alt" content="KAAV IT Enabling Services Logo" />
 
-  <!-- Structured Data (JSON-LD) -->
+  <!-- Structured Data: WebSite -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "KAAV IT Enabling Services",
-      "alternateName": ["KAAV ITES", "KAAV Inc"],
-      "url": "https://kaav-ites.com/"
+      "alternateName": ["KAAV ITES", "KAAV Inc", "KAAV Canada"],
+      "url": "https://kaav-ites.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://kaav-ites.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
   </script>
+
+  <!-- Structured Data: ProfessionalService / LocalBusiness -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -65,6 +79,11 @@
       "@id": "https://kaav-ites.com",
       "url": "https://kaav-ites.com",
       "telephone": "+1 (249) 876-5343",
+      "email": "info@kaav-ites.com",
+      "description": "KAAV IT Enabling Services offers cutting-edge IT consulting, software development, offshore delivery models, and corporate training. Bridging strategic leadership in Canada with technical excellence in India.",
+      "priceRange": "$$",
+      "areaServed": ["Canada", "United States", "India", "Global"],
+      "serviceType": ["IT Consulting", "Software Development", "Offshore Development", "Corporate Training", "Cloud Services", "AI & Machine Learning"],
       "address": [
         {
           "@type": "PostalAddress",
@@ -101,6 +120,101 @@
       },
       "sameAs": [
         "https://www.kodvix.com/"
+      ]
+    }
+  </script>
+
+  <!-- Structured Data: ItemList (Page Sections — aids Google Sitelinks) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "KAAV IT Enabling Services — Page Sections",
+      "itemListElement": [
+        {
+          "@type": "SiteLinksSearchBox",
+          "url": "https://kaav-ites.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "About KAAV IT Enabling Services",
+          "url": "https://kaav-ites.com/#about"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "IT Services — Technology Stack",
+          "url": "https://kaav-ites.com/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Technologies We Work With",
+          "url": "https://kaav-ites.com/#technologies"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Our Clients & Testimonials",
+          "url": "https://kaav-ites.com/#clients"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Contact KAAV IT Enabling Services",
+          "url": "https://kaav-ites.com/#contact"
+        }
+      ]
+    }
+  </script>
+
+  <!-- Structured Data: FAQPage (enables Google rich FAQ snippets) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does KAAV IT Enabling Services offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KAAV IT Enabling Services offers IT consulting, custom software development, frontend and backend development, cloud infrastructure, mobile app development, AI & machine learning integration, offshore development, and corporate technical training."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is KAAV IT Enabling Services located?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KAAV IT Enabling Services is headquartered in Mississauga, Ontario, Canada (6452 Chaumont Crescent, L5N 2M8), with an Offshore Development Center in Indore, Madhya Pradesh, India through its strategic partner Kodvix Technologies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does KAAV offer offshore IT development services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. KAAV IT Enabling Services operates a global delivery model, connecting strategic leadership in Canada with skilled technical teams in India. This allows clients to access high-quality, cost-effective technology solutions without compromising excellence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I contact KAAV IT Enabling Services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can reach KAAV IT Enabling Services by email at info@kaav-ites.com or contact@kaav-ites.com, by phone at +1 (249) 876-5343 (Monday–Friday, 9am–6pm EST), or through the contact form at https://kaav-ites.com/#contact."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does KAAV IT Enabling Services provide corporate IT training?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. KAAV provides comprehensive corporate and technical training programs to upskill teams in areas such as cloud computing, software development, AI & ML, and digital transformation."
+          }
+        }
       ]
     }
   </script>

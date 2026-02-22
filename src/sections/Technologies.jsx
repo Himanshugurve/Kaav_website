@@ -629,6 +629,7 @@ const Technologies = () => {
   return (
     <section
       id="technologies"
+      aria-label="Technologies We Work With"
       className="w-full scroll-mt-24 border-y border-white/5 bg-slate-950/40 py-12 sm:py-16 md:py-20 backdrop-blur-md"
     >
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -639,7 +640,7 @@ const Technologies = () => {
             Technologies
           </p>
           <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-50 sm:text-3xl md:text-4xl">
-            Cutting-Edge Tech Stack
+            Technologies We Work With
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm text-slate-300 sm:text-base md:text-lg px-4">
             Explore the technologies we use to build scalable, secure, and

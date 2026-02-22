@@ -74,7 +74,7 @@ const Clients = () => {
   const duplicatedClients = [...clients, ...clients, ...clients, ...clients, ...clients, ...clients];
 
   return (
-    <section id="clients" className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950/20 to-slate-950 py-20">
+    <section id="clients" aria-label="Our Clients and Testimonials" className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950/20 to-slate-950 py-20">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute left-1/4 top-0 h-96 w-96 rounded-full bg-indigo-600/10 blur-3xl" />
@@ -114,6 +114,8 @@ const Clients = () => {
                 key={index}
                 className="group relative flex-shrink-0"
                 style={{ width: '320px' }}
+                itemScope
+                itemType="https://schema.org/Review"
               >
                 <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/60 to-slate-800/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-indigo-500/50 hover:bg-slate-900/80">
                   {/* Hover Glow Effect */}
@@ -131,8 +133,13 @@ const Clients = () => {
                     </div>
 
                     {/* Company Name */}
-                    <h3 className="mb-2 text-lg font-semibold text-white transition-colors group-hover:text-indigo-300 text-center">
-                      {client.name}
+                    <h3
+                      className="mb-2 text-lg font-semibold text-white transition-colors group-hover:text-indigo-300 text-center"
+                      itemProp="author"
+                      itemScope
+                      itemType="https://schema.org/Organization"
+                    >
+                      <span itemProp="name">{client.name}</span>
                     </h3>
 
                     {/* Rating */}
@@ -150,9 +157,13 @@ const Clients = () => {
                     <div className="my-4 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
                     {/* Quote/Testimonial */}
-                    <p className="text-sm italic text-slate-400 text-center min-h-[60px]">
+                    <p
+                      className="text-sm italic text-slate-400 text-center min-h-[60px]"
+                      itemProp="reviewBody"
+                    >
                       "{client.testimonial}"
                     </p>
+                    <meta itemProp="reviewRating" content="5" />
                   </div>
                 </div>
               </div>

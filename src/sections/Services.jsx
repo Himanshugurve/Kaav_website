@@ -85,6 +85,9 @@ const Services = () => {
   return (
     <section
       id="services"
+      aria-label="IT Services offered by KAAV IT Enabling Services"
+      itemScope
+      itemType="https://schema.org/Service"
       className="relative w-full scroll-mt-24 py-10 md:py-14"
     >
       {/* Animated Background Elements */}
@@ -104,8 +107,8 @@ const Services = () => {
             </span>
           </div>
 
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl md:text-5xl">
-            Powered by{' '}
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-50 sm:text-4xl md:text-5xl" itemProp="name">
+            IT Services Powered by{' '}
             <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Cutting-Edge Tech
             </span>
@@ -126,6 +129,8 @@ const Services = () => {
               <div
                 key={stack.id}
                 ref={(el) => (sectionRefs.current[index] = el)}
+                itemScope
+                itemType="https://schema.org/Service"
                 className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center"
               >
                 {/* Category Section */}
@@ -143,7 +148,7 @@ const Services = () => {
                     <div className="rounded-xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 p-3 text-indigo-400 ring-2 ring-indigo-500/20">
                       {stack.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-slate-50 sm:text-2xl">
+                    <h3 className="text-xl font-bold text-slate-50 sm:text-2xl" itemProp="name">
                       {stack.category}
                     </h3>
                   </div>
@@ -160,7 +165,7 @@ const Services = () => {
                     }`}
                   style={{ animationDelay: '200ms' }}
                 >
-                  <p className="text-base leading-relaxed text-slate-300 sm:text-lg mb-3">
+                  <p className="text-base leading-relaxed text-slate-300 sm:text-lg mb-3" itemProp="description">
                     {stack.description}
                   </p>
                   <button

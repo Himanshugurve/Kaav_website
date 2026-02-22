@@ -279,6 +279,7 @@ const About = () => {
   return (
     <section
       id="about"
+      aria-label="About KAAV IT Enabling Services"
       className="relative w-full scroll-mt-24 overflow-hidden border-y border-white/5 bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950/30"
     >
       {/* TOP RIGHT Semi-circle bubble */}
@@ -322,6 +323,7 @@ const About = () => {
             About KAAV IT Enabling Services
           </p>
           <h2 className="mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-50 delay-200 px-4">
+            <span className="sr-only">KAAV IT Enabling Services: </span>
             Bridging Strategy and
             <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent"> Execution</span>
           </h2>
@@ -382,7 +384,7 @@ const About = () => {
                   className="group/link relative inline-flex items-center gap-1.5 font-semibold text-indigo-400 transition-all duration-300 hover:text-indigo-300"
                 >
                   <span className="relative">
-                    Kodvix
+                    Kodvix Technologies
                     <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-gradient-to-r from-indigo-400 to-purple-400 transition-all duration-300 group-hover/link:w-full" />
                   </span>
                   <ExternalLink className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
@@ -393,7 +395,7 @@ const About = () => {
                   Strategic Alliance
                 </span>
               </span>
-              , a technology solutions provider, we deliver enhanced capabilities and extended expertise to our clients across North America and beyond.
+              , a technology solutions provider, we deliver enhanced capabilities and extended expertise to our clients across the globe.
             </p>
             <p>
               We believe technology should empower, not complicate. Our mission is to enable businesses to achieve more with the right knowledge, tools, and talent, connecting innovation and execution seamlessly across borders and industries.
@@ -680,8 +682,7 @@ const About = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {tab.icon}
-                <span className="hidden sm:inline">{tab.label}</span>
-                <span className="sm:hidden">{tab.label.split(' ')[0]}</span>
+                <span>{tab.label}</span>
               </button>
             ))}
           </div>

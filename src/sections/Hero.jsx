@@ -29,6 +29,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
+      aria-label="KAAV IT Enabling Services — Hero"
       className="
         scroll-mt-24
         flex items-center justify-center
@@ -42,12 +43,14 @@ const Hero = () => {
         initial="hidden"
         animate="visible"
       >
-        <motion.p
+        <motion.div
           variants={itemVariants}
           className="text-xs font-semibold uppercase tracking-[0.3em] text-indigo-300"
+          role="text"
+          aria-label="IT Services and Consulting"
         >
           IT Services &amp; Consulting
-        </motion.p>
+        </motion.div>
 
         <motion.h1
           variants={itemVariants}
@@ -72,12 +75,14 @@ const Hero = () => {
         >
           <a
             href="#contact"
+            title="Contact KAAV IT Enabling Services to get started"
             className="rounded-full bg-indigo-500 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-white shadow-lg shadow-indigo-500/40 transition hover:bg-indigo-400"
           >
             Get Started
           </a>
           <a
             href="#services"
+            title="Learn more about KAAV IT Services"
             className="rounded-full border border-white/10 bg-white/5 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.25em] text-slate-100 transition hover:border-indigo-400/60 hover:bg-indigo-950/40"
           >
             Learn More

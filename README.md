@@ -1,19 +1,21 @@
 # KAAV IT Enabling Services — Corporate Website
 
-A modern, animated single-page corporate website for **KAAV IT Enabling Services**, a Canada-based technology services firm. Built with React 19, Vite, TailwindCSS 4, and TypeScript.
+A modern, animated single-page corporate website for **KAAV IT Enabling Services**, a Canada-based technology services firm. Built with React 19, Vite, TailwindCSS 4, and deployed on Vercel.
+
+🌐 **Live Site:** [kaav-ites.com](https://kaav-ites.com)
 
 ---
 
-## 🌐 Live Sections
+## 🗂️ Page Sections
 
 | Section | Description |
 |---|---|
-| **Hero** | Full-viewport landing with animated headline, CTA buttons, and particle background |
-| **About** | Company overview, KAAV principles (K-A-A-V), stats, specializations, tabbed values/methodology |
-| **Services** | Six core service offerings with icon cards |
-| **Technologies** | Tech stack showcase across Frontend, Backend, Cloud & Database categories |
-| **Clients** | Client trust/testimonial band |
-| **Contact** | Contact form with company address, email, and working hours |
+| **Hero** | Full-viewport landing with animated headline and CTA buttons |
+| **About** | Company overview, KAAV principles (K-A-A-V), stats, and tabbed values/methodology |
+| **Services** | Six core service offerings with icon cards and descriptions |
+| **Technologies** | Tech stack tabs across AI, Frontend, Backend, Cloud & DevOps, and Database |
+| **Clients** | Client trust band with testimonial carousel |
+| **Contact** | Contact form with serverless email delivery, addresses, and embedded maps |
 
 ---
 
@@ -29,6 +31,9 @@ A modern, animated single-page corporate website for **KAAV IT Enabling Services
 | [GSAP](https://gsap.com) | ^3 | High-performance animations |
 | [Lucide React](https://lucide.dev) | ^0.563 | Icon library |
 | [Mouse Follower](https://npmjs.com/package/mouse-follower) | ^1.1 | Custom cursor effect |
+| [Resend](https://resend.com) | ^6 | Transactional email API |
+| [@vercel/analytics](https://vercel.com/analytics) | ^1 | Web analytics |
+| [@vercel/speed-insights](https://vercel.com/docs/speed-insights) | ^1 | Core Web Vitals tracking |
 
 ---
 
@@ -36,8 +41,14 @@ A modern, animated single-page corporate website for **KAAV IT Enabling Services
 
 ```
 KAAV/
+├── api/
+│   └── contact.js           # Vercel Serverless Function (Resend email)
 ├── public/
-│   └── Images/              # Static assets (logo, etc.)
+│   ├── Images/              # Static assets (logos, favicons)
+│   ├── favicon.svg          # Primary SVG favicon
+│   ├── site.webmanifest     # PWA manifest
+│   ├── sitemap.xml          # SEO sitemap (homepage + anchors)
+│   └── robots.txt           # Search engine crawler config
 ├── src/
 │   ├── components/          # Shared UI components
 │   │   ├── Header.jsx       # Fixed nav with mobile hamburger menu
@@ -50,16 +61,15 @@ KAAV/
 │   │   ├── About.jsx        # Company info, stats, tabs
 │   │   ├── Services.jsx     # Service cards grid
 │   │   ├── Technologies.jsx # Tech stack tabs
-│   │   ├── Clients.jsx      # Client showcase
-│   │   └── Contact.jsx      # Contact form & info
-│   ├── data/                # Static data / content
+│   │   ├── Clients.jsx      # Client showcase & testimonials
+│   │   └── Contact.jsx      # Contact form & info cards
+│   ├── data/                # Static content / copy
 │   │   ├── company.js       # Company info & contact details
 │   │   ├── services.js      # Service definitions
 │   │   └── technologies.js  # Technology stack entries
-│   ├── styles/              # Global styles
-│   ├── App.jsx              # Root component
+│   ├── App.jsx              # Root component (Analytics + SpeedInsights)
 │   └── main.jsx             # App entry point
-├── index.html
+├── index.html               # HTML shell with meta tags & JSON-LD schemas
 ├── package.json
 ├── tailwind.config.js
 ├── tsconfig.json
@@ -85,11 +95,23 @@ cd Kaav_website
 # 2. Install dependencies
 npm install
 
-# 3. Start the development server
+# 3. Copy environment variables
+cp .env.example .env.local
+# Fill in VITE_GTM_ID, VITE_GA_MEASUREMENT_ID, and RESEND_API_KEY
+
+# 4. Start the development server
 npm run dev
 ```
 
 The application will be available at `http://localhost:5173`.
+
+### Environment Variables
+
+| Variable | Description |
+|---|---|
+| `VITE_GTM_ID` | Google Tag Manager container ID |
+| `VITE_GA_MEASUREMENT_ID` | Google Analytics 4 measurement ID |
+| `RESEND_API_KEY` | Resend API key for the contact form email |
 
 ### Available Scripts
 
@@ -119,13 +141,15 @@ The application will be available at `http://localhost:5173`.
 - 🔒 **Cybersecurity Services** — Assessments, hardening, and 24/7 monitoring
 - 💼 **IT Consulting & Support** — Strategic guidance and ongoing technical support
 
-### Company Details
+### Contact Details
 
 | Item | Detail |
 |---|---|
-| **Location** | 405, Trade House, 14 South Tukoganj Rd, Indore, MP (Global delivery model – Canada HQ) |
-| **Email** | hr@kodvix.com |
-| **Hours** | Mon – Fri: 10:00 AM – 7:00 PM |
+| **Headquarters** | 6452 Chaumont Crescent, Mississauga, ON L5N 2M8, Canada |
+| **Offshore Dev Center** | 405, Trade House, 14 South Tukoganj Rd, Indore, MP, India *(via Kodvix Technologies)* |
+| **Email** | info@kaav-ites.com · contact@kaav-ites.com |
+| **Phone** | +1 (249) 876-5343 |
+| **Hours** | Mon – Fri: 9:00 AM – 6:00 PM EST |
 | **Partner** | [Kodvix Technologies](https://www.kodvix.com/) |
 
 ---
@@ -137,8 +161,34 @@ The application will be available at `http://localhost:5173`.
 - **Responsive Design** — Mobile-first layout with animated hamburger nav
 - **Intersection Observer** — Sections animate in when scrolled into view
 - **Live Metrics Dashboard** — Animated performance/uptime/security/quality bars in the About section
-- **Technology Tabs** — Filterable tech stack organized by category (Frontend / Backend / Cloud / Database)
+- **Technology Tabs** — Filterable tech stack organized by category (AI / Frontend / Backend / Cloud & DevOps / Database)
 - **Single-Page Navigation** — Smooth anchor-based internal navigation
+- **Contact Form** — Validated form with Vercel Serverless Function + Resend API email delivery
+- **Vercel Analytics** — Real-time visitor analytics and Core Web Vitals monitoring
+- **SEO Optimised** — Structured data (JSON-LD: ProfessionalService, FAQPage, ItemList), sitemap with section anchors, Open Graph tags, canonical URLs, aria-labels, and semantic HTML throughout
+
+---
+
+## 🔍 SEO Implementation
+
+The site includes the following SEO enhancements:
+
+- **Structured Data (JSON-LD):** `WebSite`, `ProfessionalService`, `FAQPage`, and `ItemList` schemas in `index.html`
+- **Schema Microdata:** `Service` on service cards, `Review` + `Organization` on testimonials, `LocalBusiness` + `PostalAddress` on contact info
+- **Open Graph & Twitter Cards:** Full social preview metadata with image dimensions
+- **Sitemap:** `public/sitemap.xml` covering homepage and all major anchor sections
+- **Robots:** `public/robots.txt` pointing crawlers to the sitemap
+- **Semantic HTML:** Logical heading hierarchy (h1 → h2 → h3), aria-labels on all sections
+
+---
+
+## ☁️ Deployment
+
+The site is deployed on **Vercel** with the following configuration:
+
+- **Contact API:** `api/contact.js` is automatically deployed as a Vercel Serverless Function
+- **Analytics:** `@vercel/analytics` and `@vercel/speed-insights` are active in production
+- **Environment Variables:** Set `RESEND_API_KEY`, `VITE_GTM_ID`, and `VITE_GA_MEASUREMENT_ID` in the Vercel dashboard
 
 ---
 

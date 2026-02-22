@@ -130,6 +130,9 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
+      aria-label="Contact KAAV IT Enabling Services"
+      itemScope
+      itemType="https://schema.org/LocalBusiness"
       className="relative w-full scroll-mt-24 overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-950"
     >
       {/* ── Autofill background override ── */}
@@ -363,7 +366,18 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="mb-1 text-sm font-semibold text-white">Registered Location</h4>
-                  <p className="text-xs md:text-sm leading-relaxed text-slate-400">6452 Chaumont Crest<br />Mississauga, ON L5N 2M8, Canada</p>
+                  <p
+                    className="text-xs md:text-sm leading-relaxed text-slate-400"
+                    itemProp="address"
+                    itemScope
+                    itemType="https://schema.org/PostalAddress"
+                  >
+                    <span itemProp="streetAddress">6452 Chaumont Crest</span><br />
+                    <span itemProp="addressLocality">Mississauga</span>,{' '}
+                    <span itemProp="addressRegion">ON</span>{' '}
+                    <span itemProp="postalCode">L5N 2M8</span>,{' '}
+                    <span itemProp="addressCountry">Canada</span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -397,8 +411,15 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="mb-1 text-sm font-semibold text-white">Email Address</h4>
-                  <a href="mailto:info@kaav-ites.com" className="block text-xs md:text-sm text-slate-400 hover:text-cyan-400 transition-colors">info@kaav-ites.com</a>
-                  <a href="mailto:contact@kaav-ites.com" className="block text-xs md:text-sm text-slate-400 hover:text-cyan-400 transition-colors">contact@kaav-ites.com</a>
+                  <a
+                    href="mailto:info@kaav-ites.com"
+                    className="block text-xs md:text-sm text-slate-400 hover:text-cyan-400 transition-colors"
+                    itemProp="email"
+                  >info@kaav-ites.com</a>
+                  <a
+                    href="mailto:contact@kaav-ites.com"
+                    className="block text-xs md:text-sm text-slate-400 hover:text-cyan-400 transition-colors"
+                  >contact@kaav-ites.com</a>
                 </div>
               </div>
             </div>
@@ -414,7 +435,11 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="mb-1 text-sm font-semibold text-white">Contact Number</h4>
-                  <a href="tel:+12498765343" className="block text-xs md:text-sm text-slate-400 hover:text-purple-400 transition-colors">+1 (249) 876-5343</a>
+                  <a
+                    href="tel:+12498765343"
+                    className="block text-xs md:text-sm text-slate-400 hover:text-purple-400 transition-colors"
+                    itemProp="telephone"
+                  >+1 (249) 876-5343</a>
                   <p className="text-xs text-slate-500">Mon-Fri, 9am-6pm EST</p>
                 </div>
               </div>
