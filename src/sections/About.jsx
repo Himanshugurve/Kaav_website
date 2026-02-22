@@ -370,7 +370,7 @@ const About = () => {
           </div>
           <div className="grid gap-3 text-sm sm:text-base text-slate-300 leading-relaxed px-4 sm:px-0">
             <p>
-              At KAAV, we empower businesses to bridge strategy and execution through cutting-edge IT solutions, training, and outsourcing. Founded as a Canada-based firm with a global delivery model, we connect skilled teams in India with companies across Canada and beyond, delivering high-quality, cost-effective technology solutions without compromising excellence.
+              At KAAV, we empower businesses to bridge strategy and execution through cutting-edge IT solutions, training, and outsourcing. Founded as a Canada-based firm with a global delivery model, we connect skilled teams in India with companies across North America and beyond, delivering high-quality, cost-effective technology solutions without compromising excellence.
             </p>
             <p className="relative">
               <span className="inline-flex items-baseline gap-2 flex-wrap">
@@ -393,10 +393,11 @@ const About = () => {
                   Strategic Alliance
                 </span>
               </span>
-              , a leading technology solutions provider, we deliver enhanced capabilities and extended expertise to our clients across North America and beyond.
+              , a technology solutions provider, we deliver enhanced capabilities and extended expertise to our clients across North America and beyond.
             </p>
             <p>
               We believe technology should empower, not complicate. Our mission is to enable businesses to achieve more with the right knowledge, tools, and talent, connecting innovation and execution seamlessly across borders and industries.
+              Our name, KAAV, reflects our guiding principles:
             </p>
           </div>
         </div>
