@@ -1,4 +1,6 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
@@ -13,7 +15,7 @@ import Contact from './sections/Contact';
 
 const App = () => {
   return (
-    
+
     <div className="min-h-screen bg-slate-950 text-slate-50 relative overflow-hidden">
       <div className="relative z-10">
 
@@ -30,6 +32,8 @@ const App = () => {
           <Contact />
         </main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </div>
     </div>
   );
