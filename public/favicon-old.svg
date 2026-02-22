@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <!-- Blue Gradient -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2ED3F3"/>
+      <stop offset="100%" stop-color="#1B3BFF"/>
+    </linearGradient>
+
+    <!-- Top Gradient (Green → Yellow) -->
+    <linearGradient id="topGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#33D1C6"/>
+      <stop offset="100%" stop-color="#FFE14A"/>
+    </linearGradient>
+
+    <!-- Middle Gradient (Orange → Red) -->
+    <linearGradient id="midGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB347"/>
+      <stop offset="100%" stop-color="#FF3C3C"/>
+    </linearGradient>
+
+    <!-- Bottom Gradient (Blue → Cyan) -->
+    <linearGradient id="bottomGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B3BFF"/>
+      <stop offset="100%" stop-color="#00C6FF"/>
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+  </defs>
+
+  <!-- Left Vertical Bar -->
+  <rect x="60" y="60" width="70" height="380" rx="18"
+        fill="url(#blueGrad)" filter="url(#glow)"/>
+
+  <!-- Top Right Bar -->
+  <polygon points="150,80 330,40 330,110 150,150"
+           fill="url(#topGrad)" filter="url(#glow)"/>
+
+  <!-- Middle Bar -->
+  <polygon points="150,200 320,170 320,240 150,270"
+           fill="url(#midGrad)" filter="url(#glow)"/>
+
+  <!-- Bottom Diagonal Bar -->
+  <polygon points="150,320 350,420 300,450 150,370"
+           fill="url(#midGrad)" filter="url(#glow)"/>
+
+  <!-- Bottom Inner Bar -->
+  <polygon points="150,370 250,450 180,450 150,420"
+           fill="url(#bottomGrad)" filter="url(#glow)"/>
+
+</svg>
