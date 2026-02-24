@@ -542,7 +542,7 @@ const About = () => {
                   {[
                     {
                       icon: <Award className="h-5 w-5" />,
-                      text: '500+ Projects',
+                      text: '10+ Projects',
                       description: 'Successfully delivered across diverse industries with proven results',
                       color: 'from-blue-500 to-cyan-500'
                     },
