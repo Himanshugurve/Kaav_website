@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import Header from './components/Header';
@@ -14,12 +14,14 @@ import Contact from './sections/Contact';
 
 
 const App = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
 
     <div className="min-h-screen bg-slate-950 text-slate-50 relative overflow-hidden">
       <div className="relative z-10">
 
-        <Header />
+        <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <main className="mx-auto max-w-6xl px-4 relative">
           <ParticleBackground />
           <Hero />
@@ -31,7 +33,7 @@ const App = () => {
           <Clients />
           <Contact />
         </main>
-        <Footer />
+        <Footer setMenuOpen={setMenuOpen} />
         <Analytics />
         <SpeedInsights />
       </div>

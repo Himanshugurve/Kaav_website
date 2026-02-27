@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 
-const Footer = () => {
+const Footer = ({ setMenuOpen }) => {
   const currentYear = new Date().getFullYear();
 
   const services = [
@@ -14,10 +14,11 @@ const Footer = () => {
   ];
 
   const company = [
-    'About Us',
-    'Technologies',
-    'Contact',
-    'Clients'
+    { name: 'Home', href: '#hero' },
+    { name: 'About Us', href: '#about' },
+    { name: 'Technologies', href: '#technologies' },
+    { name: 'Contact', href: '#contact' },
+    { name: 'Clients', href: '#clients' }
   ];
 
 
@@ -72,8 +73,9 @@ const Footer = () => {
                   {services.map((service) => (
                     <li key={service}>
                       <a
-                        href="#"
+                        href="#services"
                         className="group inline-flex items-center gap-1 text-slate-400 transition-colors hover:text-indigo-400"
+                        onClick={() => setMenuOpen && setMenuOpen(false)}
                       >
                         {service}
                         <ArrowUpRight className="h-3 w-3 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -90,12 +92,13 @@ const Footer = () => {
                 </h4>
                 <ul className="space-y-2 text-sm">
                   {company.map((item) => (
-                    <li key={item}>
+                    <li key={item.name}>
                       <a
-                        href="#"
+                        href={item.href}
                         className="group inline-flex items-center gap-1 text-slate-400 transition-colors hover:text-indigo-400"
+                        onClick={() => setMenuOpen && setMenuOpen(false)}
                       >
-                        {item}
+                        {item.name}
                         <ArrowUpRight className="h-3 w-3 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </a>
                     </li>

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const Header = ({ menuOpen, setMenuOpen }) => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-slate-950/80 backdrop-blur">
