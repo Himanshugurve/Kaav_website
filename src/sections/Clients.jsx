@@ -30,12 +30,14 @@ const Clients = () => {
     {
       name: 'Fat2Fit',
       domain: 'fat2fitxpress.com',
+      website: 'https://fat2fitxpress.com',
       logo: '/Images/fat2fit-logo.png',
       testimonial: 'KAAV transformed our fitness platform with a seamless UI and robust backend. Their expertise in React and Node.js is top-notch.'
     },
     {
       name: 'VenX',
       domain: 'venx.co.in',
+      website: 'https://venx.co.in/',
       logo: '/Images/venx-logo.png',
       testimonial: 'The team at KAAV delivered a high-performance solution that exceeded our expectations. Their attention to detail and technical skill is exceptional.'
     }
@@ -117,63 +119,70 @@ const Clients = () => {
                 itemScope
                 itemType="https://schema.org/Review"
               >
-                <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/60 to-slate-800/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-indigo-500/50 hover:bg-slate-900/80">
-                  {/* Hover Glow Effect */}
-                  <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-indigo-500/20 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <a
+                  href={client.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full cursor-pointer"
+                >
+                  <div className="relative h-full overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-slate-900/60 to-slate-800/40 p-8 backdrop-blur-sm transition-all duration-300 hover:border-indigo-500/50 hover:bg-slate-900/80">
+                    {/* Hover Glow Effect */}
+                    <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-indigo-500/20 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
-                  {/* Content */}
-                  <div className="relative">
-                    {/* Logo/Logo Placeholder */}
-                    <div className="mb-4 flex h-16 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/5 to-purple-500/5 ring-1 ring-white/10 overflow-hidden">
-                      <LogoImage
-                        src={client.logo}
-                        alt={`${client.name} logo`}
-                        fallbackText={client.name}
-                      />
-                    </div>
-
-                    {/* Company Name */}
-                    <h3
-                      className="mb-2 text-lg font-semibold text-white transition-colors group-hover:text-indigo-300 text-center"
-                      itemProp="author"
-                      itemScope
-                      itemType="https://schema.org/Organization"
-                    >
-                      <span itemProp="name">{client.name}</span>
-                    </h3>
-
-                    {/* Rating */}
-                    <div className="flex items-center justify-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="h-4 w-4 fill-yellow-500 text-yellow-500"
+                    {/* Content */}
+                    <div className="relative">
+                      {/* Logo/Logo Placeholder */}
+                      <div className="mb-4 flex h-16 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500/5 to-purple-500/5 ring-1 ring-white/10 overflow-hidden">
+                        <LogoImage
+                          src={client.logo}
+                          alt={`${client.name} logo`}
+                          fallbackText={client.name}
                         />
-                      ))}
-                      <span className="ml-2 text-xs text-slate-400">5.0</span>
-                    </div>
+                      </div>
 
-                    {/* Divider */}
-                    <div className="my-4 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+                      {/* Company Name */}
+                      <h3
+                        className="mb-2 text-lg font-semibold text-white transition-colors group-hover:text-indigo-300 text-center"
+                        itemProp="author"
+                        itemScope
+                        itemType="https://schema.org/Organization"
+                      >
+                        <span itemProp="name">{client.name}</span>
+                      </h3>
 
-                    {/* Quote/Testimonial */}
-                    <p
-                      className="text-sm italic text-slate-400 text-center min-h-[60px]"
-                      itemProp="reviewBody"
-                    >
-                      "{client.testimonial}"
-                    </p>
-                    <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness">
-                      <meta itemProp="name" content="KAAV IT Enabling Services" />
-                      <meta itemProp="url" content="https://kaav-ites.com" />
-                      <meta itemProp="image" content="https://kaav-ites.com/Images/KAAV-LOGO-CB.png" />
-                    </div>
-                    <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
-                      <meta itemProp="ratingValue" content="5" />
-                      <meta itemProp="bestRating" content="5" />
+                      {/* Rating */}
+                      <div className="flex items-center justify-center gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="h-4 w-4 fill-yellow-500 text-yellow-500"
+                          />
+                        ))}
+                        <span className="ml-2 text-xs text-slate-400">5.0</span>
+                      </div>
+
+                      {/* Divider */}
+                      <div className="my-4 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+                      {/* Quote/Testimonial */}
+                      <p
+                        className="text-sm italic text-slate-400 text-center min-h-[60px]"
+                        itemProp="reviewBody"
+                      >
+                        "{client.testimonial}"
+                      </p>
+                      <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness">
+                        <meta itemProp="name" content="KAAV IT Enabling Services" />
+                        <meta itemProp="url" content="https://kaav-ites.com" />
+                        <meta itemProp="image" content="https://kaav-ites.com/Images/KAAV-LOGO-CB.png" />
+                      </div>
+                      <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                        <meta itemProp="ratingValue" content="5" />
+                        <meta itemProp="bestRating" content="5" />
+                      </div>
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
             ))}
           </div>
