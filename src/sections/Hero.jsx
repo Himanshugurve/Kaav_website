@@ -56,7 +56,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl lg:text-6xl"
         >
-          Transforming Ideas{' '}
+          KAAV: Transforming Ideas{' '}
           <span className="text-[#255398]">Into Digital Reality</span>
         </motion.h1>
 

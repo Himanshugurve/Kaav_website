@@ -12,7 +12,7 @@ const Header = ({ menuOpen, setMenuOpen }) => {
         <a href="#hero" className="flex h-full items-center cursor-pointer">
           <img
             src="/Images/KAAV-ITES-DARK.png"
-            alt="Kavv Logos"
+            alt="KAAV IT Enabling Services Logo"
             className="h-12 w-auto max-h-full object-contain transform scale-110 hover:scale-125 transition-transform duration-200"
           />
         </a>

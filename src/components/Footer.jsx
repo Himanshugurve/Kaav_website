@@ -36,7 +36,7 @@ const Footer = ({ setMenuOpen }) => {
               <div className="mb-4">
                 <img
                   src="/Images/KAAV-ITES-DARK.png"
-                  alt="Kavv Logos"
+                  alt="KAAV IT Enabling Services Logo"
                   className="h-12 w-auto max-h-full object-contain transform scale-110 hover:scale-125 transition-transform duration-200"
                 />
                 <p className="text-sm text-slate-400">
@@ -48,7 +48,7 @@ const Footer = ({ setMenuOpen }) => {
               <div className="space-y-2 text-xs text-slate-500">
                 <div className="flex items-center gap-2 transition-colors hover:text-indigo-400">
                   <Mail className="h-3.5 w-3.5" />
-                  <a href="info@kaav-ites.com">info@kaav-ites.com</a>
+                  <a href="mailto:info@kaav-ites.com">info@kaav-ites.com</a>
                 </div>
                 <div className="flex items-center gap-2 transition-colors hover:text-indigo-400">
                   <Phone className="h-3.5 w-3.5" />
