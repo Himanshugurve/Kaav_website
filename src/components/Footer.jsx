@@ -111,8 +111,8 @@ const Footer = ({ setMenuOpen }) => {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/5 bg-black/30 px-6 py-4">
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs text-slate-500">
+         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 sm:flex-row">
+  <p className="text-xs text-slate-500 text-center">
               © {currentYear} Kaav Technology. All rights reserved.
             </p>
 
