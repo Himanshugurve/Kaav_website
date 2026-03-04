@@ -163,7 +163,15 @@ const Clients = () => {
                     >
                       "{client.testimonial}"
                     </p>
-                    <meta itemProp="reviewRating" content="5" />
+                    <div itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness">
+                      <meta itemProp="name" content="KAAV IT Enabling Services" />
+                      <meta itemProp="url" content="https://kaav-ites.com" />
+                      <meta itemProp="image" content="https://kaav-ites.com/Images/KAAV-LOGO-CB.png" />
+                    </div>
+                    <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                      <meta itemProp="ratingValue" content="5" />
+                      <meta itemProp="bestRating" content="5" />
+                    </div>
                   </div>
                 </div>
               </div>
