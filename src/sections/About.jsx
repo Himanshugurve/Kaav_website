@@ -547,8 +547,8 @@ const About = () => {
 
             {/* Why Choose Section */}
             <div className={`hidden md:block mt-4 sm:mt-5 ${contentRef.isIntersecting ? 'animate-fade-in-up delay-400' : 'opacity-0'}`}>
-              <div className="relative max-w-md mx-auto">
-                <h4 className="mb-4 text-lg sm:text-xl md:text-2xl font-bold text-slate-50 flex items-center gap-2">
+              <div className="relative max-w-md mx-auto ml-0 ">
+                <h4 className="mb-[31px] mt-[31px] text-lg sm:text-xl md:text-2xl font-bold text-slate-50 flex items-center gap-2">
                   <Sparkles className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 text-indigo-400" />
                   Why Choose Us?
                 </h4>

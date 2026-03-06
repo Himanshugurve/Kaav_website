@@ -32,6 +32,8 @@ const ContactSection = () => {
     const errs = {};
     if (!data.name.trim()) {
       errs.name = 'Full name is required.';
+    } else if (!/^[a-zA-Z\s\.'-]+$/.test(data.name)) {
+      errs.name = 'Name can only contain letters, spaces, and basic punctuation.';
     } else if (data.name.trim().length < 2) {
       errs.name = 'Name must be at least 2 characters.';
     }
@@ -44,8 +46,8 @@ const ContactSection = () => {
 
     if (!data.phone.trim()) {
       errs.phone = 'Phone number is required.';
-    } else if (!/^[+\d\s\-().]{7,20}$/.test(data.phone)) {
-      errs.phone = 'Please enter a valid phone number.';
+    } else if (!/^\d{10}$/.test(data.phone.replace(/\D/g, ''))) {
+      errs.phone = 'Phone number must be exactly 10 digits.';
     }
 
     if (!data.company.trim()) {
@@ -62,12 +64,38 @@ const ContactSection = () => {
   };
 
   const handleChange = (e) => {
-    const updated = { ...formData, [e.target.name]: e.target.value };
-    setFormData(updated);
-    // Live validate only touched fields
-    if (touched[e.target.name]) {
-      const errs = validate(updated);
-      setErrors((prev) => ({ ...prev, [e.target.name]: errs[e.target.name] }));
+    const { name, value } = e.target;
+    
+    // Restrict phone field to 10 digits only
+    if (name === 'phone') {
+      const digitsOnly = value.replace(/\D/g, '').slice(0, 10);
+      const updated = { ...formData, [name]: digitsOnly };
+      setFormData(updated);
+      
+      // Live validate only touched fields
+      if (touched[name]) {
+        const errs = validate(updated);
+        setErrors((prev) => ({ ...prev, [name]: errs[name] }));
+      }
+    } else if (name === 'name') {
+      // Restrict name field to alphabetic characters, spaces, and basic punctuation
+      const alphabeticOnly = value.replace(/[^a-zA-Z\s\.'-]/g, '');
+      const updated = { ...formData, [name]: alphabeticOnly };
+      setFormData(updated);
+      
+      // Live validate only touched fields
+      if (touched[name]) {
+        const errs = validate(updated);
+        setErrors((prev) => ({ ...prev, [name]: errs[name] }));
+      }
+    } else {
+      const updated = { ...formData, [name]: value };
+      setFormData(updated);
+      // Live validate only touched fields
+      if (touched[name]) {
+        const errs = validate(updated);
+        setErrors((prev) => ({ ...prev, [name]: errs[name] }));
+      }
     }
   };
 
@@ -226,7 +254,6 @@ const ContactSection = () => {
                     placeholder="Full Name" required
                   />
                   <label className={labelBase('name')}>Full Name *</label>
-                  <div className={underlineClass('name')} />
                   {touched.name && errors.name && (
                     <p className="mt-1 flex items-center gap-1 text-xs text-red-400">
                       <AlertCircle className="h-3 w-3 flex-shrink-0" />{errors.name}
@@ -246,7 +273,6 @@ const ContactSection = () => {
                     placeholder="Email" required
                   />
                   <label className={labelBase('email')}>Email Address *</label>
-                  <div className={underlineClass('email')} />
                   {touched.email && errors.email && (
                     <p className="mt-1 flex items-center gap-1 text-xs text-red-400">
                       <AlertCircle className="h-3 w-3 flex-shrink-0" />{errors.email}
@@ -267,9 +293,9 @@ const ContactSection = () => {
                     onKeyDown={handleKeyDown}
                     className={inputBase}
                     placeholder="Phone" required
+                    maxLength="10"
                   />
                   <label className={labelBase('phone')}>Phone Number *</label>
-                  <div className={underlineClass('phone')} />
                   {touched.phone && errors.phone && (
                     <p className="mt-1 flex items-center gap-1 text-xs text-red-400">
                       <AlertCircle className="h-3 w-3 flex-shrink-0" />{errors.phone}
@@ -289,7 +315,6 @@ const ContactSection = () => {
                     placeholder="Company" required
                   />
                   <label className={labelBase('company')}>Company Name *</label>
-                  <div className={underlineClass('company')} />
                   {touched.company && errors.company && (
                     <p className="mt-1 flex items-center gap-1 text-xs text-red-400">
                       <AlertCircle className="h-3 w-3 flex-shrink-0" />{errors.company}
@@ -310,7 +335,6 @@ const ContactSection = () => {
                   placeholder="Message" required
                 />
                 <label className={labelBase('message')}>Your Message *</label>
-                <div className={underlineClass('message')} />
                 {touched.message && errors.message && (
                   <p className="mt-1 flex items-center gap-1 text-xs text-red-400">
                     <AlertCircle className="h-3 w-3 flex-shrink-0" />{errors.message}

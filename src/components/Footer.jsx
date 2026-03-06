@@ -30,31 +30,42 @@ const Footer = ({ setMenuOpen }) => {
       <div className="relative">
         {/* Main Footer Content */}
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-12">
+          <div className="grid gap-8 lg:grid-cols-12 text-center lg:text-left">
             {/* Brand Section - Takes more space */}
-            <div className="lg:col-span-4">
-              <div className="mb-4">
+            <div className="lg:col-span-4 lg:text-left">
+              <div className="mb-4 flex flex-col items-center lg:items-start">
                 <img
                   src="/Images/KAAV-ITES-DARK.png"
                   alt="KAAV IT Enabling Services Logo"
                   className="h-12 w-auto max-h-full object-contain transform scale-110 hover:scale-125 transition-transform duration-200"
                 />
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-slate-400 mt-2">
                   Transforming ideas into powerful digital solutions
                 </p>
               </div>
 
               {/* Contact Info */}
-              <div className="space-y-2 text-xs text-slate-500">
+              <div className="space-y-2 text-xs text-slate-500 flex flex-col items-center lg:items-start">
                 <div className="flex items-center gap-2 transition-colors hover:text-indigo-400">
                   <Mail className="h-3.5 w-3.5" />
-                  <a href="mailto:info@kaav-ites.com">info@kaav-ites.com</a>
+                  <a 
+                    href="mailto:info@kaav-ites.com" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-indigo-400 transition-colors duration-200 hover:underline cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = 'mailto:info@kaav-ites.com';
+                    }}
+                  >
+                    info@kaav-ites.com
+                  </a>
                 </div>
                 <div className="flex items-center gap-2 transition-colors hover:text-indigo-400">
                   <Phone className="h-3.5 w-3.5" />
                   <a href="tel:+12498765343">+1 (249) 876-5343</a>
                 </div>
-                <div className="flex items-start gap-2">
+                <div className="flex items-start gap-2 text-center lg:text-left">
                   <MapPin className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" />
                   <span>6452 Chaumont Crescent, Mississauga, ON L5N 2M8, Canada</span>
                 </div>
@@ -63,9 +74,9 @@ const Footer = ({ setMenuOpen }) => {
             </div>
 
             {/* Links Section - Compact grid */}
-            <div className="grid grid-cols-2 gap-8 lg:col-span-8">
+            <div className="grid grid-cols-2 gap-8 lg:col-span-8 justify-items-center lg:justify-items-start">
               {/* Services */}
-              <div>
+              <div className="text-center lg:text-left">
                 <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-300">
                   Services
                 </h4>
@@ -86,7 +97,7 @@ const Footer = ({ setMenuOpen }) => {
               </div>
 
               {/* Company */}
-              <div>
+              <div className="text-center lg:text-left">
                 <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-300">
                   Company
                 </h4>
@@ -112,11 +123,9 @@ const Footer = ({ setMenuOpen }) => {
         {/* Bottom Bar */}
         <div className="border-t border-white/5 bg-black/30 px-6 py-4">
          <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 sm:flex-row">
-  <p className="text-xs text-slate-500 text-center">
-              © {currentYear} Kaav Technology. All rights reserved.
+          <p className="text-xs text-slate-500 text-center">
+              &copy; {currentYear} Kaav Technology. All rights reserved.
             </p>
-
-
           </div>
         </div>
       </div>

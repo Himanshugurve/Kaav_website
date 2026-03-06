@@ -763,9 +763,9 @@ const Technologies = () => {
                         {tech.description}
                       </p>
                       <div className="mt-4 flex items-center gap-2">
-                        <span className="text-xs text-indigo-300 opacity-0 transition group-hover:opacity-100">
+                        {/* <span className="text-xs text-indigo-300 opacity-0 transition group-hover:opacity-100">
                           Documentation →
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/0 via-purple-500/0 to-pink-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-10" />
