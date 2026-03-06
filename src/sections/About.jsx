@@ -71,6 +71,21 @@ const About = () => {
   const achievementsRef = useIntersectionObserver();
   const ctaRef = useIntersectionObserver();
 
+  // Ref for the tab navigation row — used to anchor scroll position on tab change
+  const tabNavRef = useRef(null);
+
+  // Scroll-anchored tab change: prevents page jump when content height changes
+  const handleTabChange = (tabId) => {
+    if (tabId === activeTab) return;
+    const top = tabNavRef.current?.getBoundingClientRect().top ?? 0;
+    setActiveTab(tabId);
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        const newTop = tabNavRef.current?.getBoundingClientRect().top ?? 0;
+        window.scrollBy({ top: newTop - top, behavior: 'instant' });
+      })
+    );
+  };
 
   // Auto-rotate features
   useEffect(() => {
@@ -670,12 +685,16 @@ const About = () => {
 
         {/* Tabbed Content Section */}
         <div ref={tabsRef.ref} className="mb-6 sm:mb-8">
-          {/* Tab Navigation */}
-          <div className={`mb-4 sm:mb-5 flex flex-wrap justify-center gap-2 px-2 ${tabsRef.isIntersecting ? 'animate-fade-in-up' : 'opacity-0'}`}>
+
+          {/* Tab Navigation — ref attached here for scroll anchoring */}
+          <div
+            ref={tabNavRef}
+            className={`mb-4 sm:mb-5 flex flex-wrap justify-center gap-2 px-2 ${tabsRef.isIntersecting ? 'animate-fade-in-up' : 'opacity-0'}`}
+          >
             {tabs.map((tab, index) => (
               <button
                 key={tab.id}
-                onMouseEnter={() => setActiveTab(tab.id)}
+                onMouseEnter={() => handleTabChange(tab.id)}
                 className={`flex items-center gap-1.5 rounded-lg px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium transition-all duration-500 ${activeTab === tab.id
                   ? 'scale-105 bg-indigo-500 text-white shadow-lg shadow-indigo-500/30'
                   : 'bg-slate-800/50 text-slate-400 hover:scale-105 hover:bg-slate-800 hover:text-slate-300'}`}

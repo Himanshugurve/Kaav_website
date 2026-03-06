@@ -42,8 +42,14 @@ const ContactSection = () => {
       errs.email = 'Please enter a valid email address.';
     }
 
-    if (data.phone && !/^[+\d\s\-().]{7,20}$/.test(data.phone)) {
+    if (!data.phone.trim()) {
+      errs.phone = 'Phone number is required.';
+    } else if (!/^[+\d\s\-().]{7,20}$/.test(data.phone)) {
       errs.phone = 'Please enter a valid phone number.';
+    }
+
+    if (!data.company.trim()) {
+      errs.company = 'Company name is required.';
     }
 
     if (!data.message.trim()) {
@@ -260,9 +266,9 @@ const ContactSection = () => {
                     onFocus={() => setActiveInput('phone')} onBlur={handleBlur}
                     onKeyDown={handleKeyDown}
                     className={inputBase}
-                    placeholder="Phone"
+                    placeholder="Phone" required
                   />
-                  <label className={labelBase('phone')}>Phone Number</label>
+                  <label className={labelBase('phone')}>Phone Number *</label>
                   <div className={underlineClass('phone')} />
                   {touched.phone && errors.phone && (
                     <p className="mt-1 flex items-center gap-1 text-xs text-red-400">
@@ -280,10 +286,15 @@ const ContactSection = () => {
                     onFocus={() => setActiveInput('company')} onBlur={handleBlur}
                     onKeyDown={handleKeyDown}
                     className={inputBase}
-                    placeholder="Company"
+                    placeholder="Company" required
                   />
-                  <label className={labelBase('company')}>Company Name</label>
+                  <label className={labelBase('company')}>Company Name *</label>
                   <div className={underlineClass('company')} />
+                  {touched.company && errors.company && (
+                    <p className="mt-1 flex items-center gap-1 text-xs text-red-400">
+                      <AlertCircle className="h-3 w-3 flex-shrink-0" />{errors.company}
+                    </p>
+                  )}
                 </div>
               </div>
 
