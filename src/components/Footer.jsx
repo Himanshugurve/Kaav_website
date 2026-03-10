@@ -37,6 +37,8 @@ const Footer = ({ setMenuOpen }) => {
                 <img
                   src="/Images/KAAV-ITES-DARK.png"
                   alt="KAAV IT Enabling Services Logo"
+                  loading="lazy"
+                  decoding="async"
                   className="h-12 w-auto max-h-full object-contain transform scale-110 hover:scale-125 transition-transform duration-200"
                 />
                 <p className="text-sm text-slate-400 mt-2">
@@ -48,8 +50,8 @@ const Footer = ({ setMenuOpen }) => {
               <div className="space-y-2 text-xs text-slate-500 flex flex-col items-center lg:items-start">
                 <div className="flex items-center gap-2 transition-colors hover:text-indigo-400">
                   <Mail className="h-3.5 w-3.5" />
-                  <a 
-                    href="mailto:info@kaav-ites.com" 
+                  <a
+                    href="mailto:info@kaav-ites.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-indigo-400 transition-colors duration-200 hover:underline cursor-pointer"
@@ -122,8 +124,8 @@ const Footer = ({ setMenuOpen }) => {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/5 bg-black/30 px-6 py-4">
-         <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 sm:flex-row">
-          <p className="text-xs text-slate-500 text-center">
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-4 sm:flex-row">
+            <p className="text-xs text-slate-500 text-center">
               &copy; {currentYear} Kaav Technology. All rights reserved.
             </p>
           </div>

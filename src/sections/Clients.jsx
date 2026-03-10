@@ -16,6 +16,8 @@ const LogoImage = ({ src, alt, fallbackText }) => {
     <img
       src={src}
       alt={alt}
+      loading="lazy"
+      decoding="async"
       className="h-full w-full object-contain p-2 transition-transform duration-300 group-hover:scale-110"
       onError={() => setHasError(true)}
     />

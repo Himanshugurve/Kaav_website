@@ -13,6 +13,8 @@ const Header = ({ menuOpen, setMenuOpen }) => {
           <img
             src="/Images/KAAV-ITES-DARK.png"
             alt="KAAV IT Enabling Services Logo"
+            decoding="async"
+            fetchpriority="high"
             className="h-12 w-auto max-h-full object-contain transform scale-110 hover:scale-125 transition-transform duration-200"
           />
         </a>
