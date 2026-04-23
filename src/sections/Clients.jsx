@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Star, TrendingUp, Shield, Zap } from 'lucide-react';
+import { Star, Zap } from 'lucide-react';
 
 const LogoImage = ({ src, alt, fallbackText }) => {
   const [hasError, setHasError] = React.useState(false);
@@ -34,6 +34,7 @@ const Clients = () => {
       domain: 'fat2fitxpress.com',
       website: 'https://fat2fitxpress.com',
       logo: '/Images/fat2fit-logo.png',
+      rating: 4.8,
       testimonial: 'KAAV transformed our fitness platform with a seamless UI and robust backend. Their expertise in React and Node.js is top-notch.'
     },
     {
@@ -41,15 +42,17 @@ const Clients = () => {
       domain: 'venx.co.in',
       website: 'https://venx.co.in/',
       logo: '/Images/venx-logo.png',
+      rating: 4.9,
       testimonial: 'The team at KAAV delivered a high-performance solution that exceeded our expectations. Their attention to detail and technical skill is exceptional.'
+    },
+    {
+      name: 'Day5Analytics',
+      domain: 'day5analytics.com',
+      website: 'https://www.day5analytics.com/',
+      logo: '/Images/day5analytics-logo.png',
+      rating: 4.7,
+      testimonial: 'KAAV expertly resolved our KNIME Hub installation and Docker issues, getting us up and running without any hassle.'
     }
-  ];
-
-  const stats = [
-    { icon: Star, value: '50+', label: 'Happy Clients' },
-    { icon: TrendingUp, value: '98%', label: 'Success Rate' },
-    { icon: Shield, value: '5+', label: 'Years Experience' },
-    { icon: Zap, value: '200+', label: 'Projects Delivered' }
   ];
 
   useEffect(() => {
@@ -154,13 +157,26 @@ const Clients = () => {
 
                       {/* Rating */}
                       <div className="flex items-center justify-center gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className="h-4 w-4 fill-yellow-500 text-yellow-500"
-                          />
-                        ))}
-                        <span className="ml-2 text-xs text-slate-400">5.0</span>
+                        {[...Array(5)].map((_, i) => {
+                          const full = i < Math.floor(client.rating);
+                          const partial = !full && i < client.rating;
+                          return (
+                            <span key={i} className="relative inline-block h-4 w-4">
+                              {/* Empty star base */}
+                              <Star className="h-4 w-4 text-slate-600" />
+                              {/* Filled overlay */}
+                              {(full || partial) && (
+                                <span
+                                  className="absolute inset-0 overflow-hidden"
+                                  style={{ width: full ? '100%' : `${(client.rating % 1) * 100}%` }}
+                                >
+                                  <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                                </span>
+                              )}
+                            </span>
+                          );
+                        })}
+                        <span className="ml-2 text-xs text-slate-400">{client.rating.toFixed(1)}</span>
                       </div>
 
                       {/* Divider */}
@@ -179,7 +195,7 @@ const Clients = () => {
                         <meta itemProp="image" content="https://kaav-ites.com/Images/KAAV-LOGO-CB.png" />
                       </div>
                       <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
-                        <meta itemProp="ratingValue" content="5" />
+                        <meta itemProp="ratingValue" content={client.rating.toString()} />
                         <meta itemProp="bestRating" content="5" />
                       </div>
                     </div>
