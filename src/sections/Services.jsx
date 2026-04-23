@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Code2, Cloud, Shield, Smartphone, Database, Cpu,
-  Sparkles, ArrowRight, CheckCircle2, Zap, Globe, Lock
+  Sparkles, ArrowRight
 } from 'lucide-react';
 
 // Function to scroll to hero section
